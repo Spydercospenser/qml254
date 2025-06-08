@@ -1,0 +1,2786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QML254 | ICT Forex Mentor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         :root {
+            --primary: #7e22ce;
+            --secondary: #6b21a8;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --danger: #ef4444;
+            --ict-purple: #7e22ce;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header Styles */
+        
+        header {
+            background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* Hero Section */
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e69009;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        /* About Section */
+        
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--ict-purple);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #64748b;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+        /* ICT Strategies Section */
+        
+        .ict-strategies {
+            background-color: #f1f5f9;
+        }
+        
+        .strategies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .strategy-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--ict-purple);
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .strategy-icon {
+            font-size: 2.5rem;
+            color: var(--ict-purple);
+            margin-bottom: 1.5rem;
+        }
+        
+        .strategy-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .strategy-card p {
+            color: #64748b;
+        }
+        /* Free Resources Section */
+        
+        .free-resources {
+            background-color: white;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-icon {
+            font-size: 2rem;
+            color: var(--ict-purple);
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .resource-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background-color: var(--ict-purple);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-btn:hover {
+            background-color: var(--secondary);
+        }
+        /* Mentorship Levels Section */
+        
+        .mentorship-levels {
+            background-color: #f1f5f9;
+        }
+        
+        .levels-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+        }
+        
+        .level-card {
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--ict-purple);
+        }
+        
+        .level-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .level-name {
+            font-size: 1.5rem;
+            color: var(--ict-purple);
+            margin-bottom: 0.5rem;
+        }
+        
+        .level-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+        
+        .level-features {
+            margin-bottom: 2rem;
+        }
+        
+        .level-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .level-features li i {
+            color: var(--success);
+            margin-right: 0.5rem;
+        }
+        
+        .level-btn {
+            display: block;
+            text-align: center;
+            padding: 0.8rem;
+            background-color: var(--ict-purple);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .level-btn:hover {
+            background-color: var(--secondary);
+        }
+        /* Stats Section */
+        
+        .stats {
+            background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        /* Testimonials */
+        
+        .testimonials {
+            padding: 6rem 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin: 0;
+            font-style: normal;
+        }
+        /* Registration Modal */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.5rem;
+            color: var(--ict-purple);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+        
+        .modal-body {
+            padding: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--ict-purple);
+            box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.1);
+        }
+        
+        .modal-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: right;
+        }
+        /* Members Area Section */
+        
+        .members-area {
+            display: none;
+            padding: 6rem 0;
+        }
+        
+        .members-area.active {
+            display: block;
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .member-resource {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--ict-purple);
+        }
+        
+        .member-resource h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--ict-purple);
+        }
+        
+        .member-resource p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--ict-purple);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--secondary);
+        }
+        /* Contact Section */
+        
+        .contact {
+            background-color: #f1f5f9;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: #64748b;
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--ict-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--ict-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Footer */
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        /* AI Chatbot */
+        
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+        
+        .chatbot-btn {
+            width: 60px;
+            height: 60px;
+            background-color: var(--ict-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .chatbot-btn:hover {
+            background-color: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .chatbot-window.active {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-header h3 {
+            font-size: 1.2rem;
+        }
+        
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .chatbot-body {
+            padding: 1rem;
+            height: 300px;
+            overflow-y: auto;
+        }
+        
+        .chat-message {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+        
+        .bot-message {
+            justify-content: flex-start;
+        }
+        
+        .user-message {
+            justify-content: flex-end;
+        }
+        
+        .message-content {
+            max-width: 80%;
+            padding: 0.8rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .bot-message .message-content {
+            background-color: #f1f5f9;
+            color: var(--dark);
+        }
+        
+        .user-message .message-content {
+            background-color: var(--ict-purple);
+            color: white;
+        }
+        
+        .chatbot-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        .chatbot-input button {
+            margin-left: 0.5rem;
+            background-color: var(--ict-purple);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chatbot-input button:hover {
+            background-color: var(--secondary);
+        }
+        /* PDF Viewer Modal */
+        
+        .pdf-viewer-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .pdf-viewer-modal.active {
+            display: flex;
+        }
+        
+        .pdf-viewer-content {
+            width: 90%;
+            max-width: 900px;
+            height: 90vh;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pdf-viewer-header {
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .pdf-viewer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .pdf-viewer-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .pdf-viewer-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .pdf-tabs {
+            display: flex;
+            background-color: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .pdf-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border-right: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-tab.active {
+            background-color: white;
+            color: var(--ict-purple);
+            font-weight: 600;
+        }
+        
+        .pdf-viewer-iframe {
+            flex: 1;
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+        /* Trading Tools Section */
+        
+        .trading-tools {
+            background-color: white;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tool-card {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-icon {
+            font-size: 2rem;
+            color: var(--ict-purple);
+            margin-bottom: 1rem;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .tool-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tool-btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background-color: var(--ict-purple);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-btn:hover {
+            background-color: var(--secondary);
+        }
+        /* Trading Journal Section */
+        
+        .trading-journal {
+            background-color: #f1f5f9;
+        }
+        
+        .journal-container {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .journal-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .journal-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .journal-text {
+            flex: 1;
+        }
+        
+        .journal-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .journal-text p {
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+        /* Risk Calculator Modal */
+        
+        .risk-calculator-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .risk-calculator-modal.active {
+            display: flex;
+        }
+        
+        .risk-calculator-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .risk-calculator-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
+            color: white;
+        }
+        
+        .risk-calculator-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .risk-calculator-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .risk-calculator-body {
+            padding: 1.5rem;
+        }
+        
+        .risk-result {
+            background-color: #f1f5f9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .risk-result h4 {
+            color: var(--ict-purple);
+            margin-bottom: 0.5rem;
+        }
+        /* Trading Journal Modal */
+        
+        .journal-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .journal-modal.active {
+            display: flex;
+        }
+        
+        .journal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .journal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
+            color: white;
+        }
+        
+        .journal-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .journal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .journal-body {
+            padding: 1.5rem;
+        }
+        
+        .journal-entry {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .journal-entry:last-child {
+            border-bottom: none;
+        }
+        
+        .journal-entry-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .journal-entry-date {
+            font-weight: bold;
+            color: var(--ict-purple);
+        }
+        
+        .journal-entry-pair {
+            background-color: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .journal-entry-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .journal-entry-details div {
+            font-size: 0.9rem;
+        }
+        
+        .journal-entry-details span {
+            font-weight: bold;
+        }
+        
+        .journal-entry-note {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        .journal-entry-profit {
+            font-weight: bold;
+            color: var(--success);
+        }
+        
+        .journal-entry-loss {
+            font-weight: bold;
+            color: var(--danger);
+        }
+        /* Video Course Modal */
+        
+        .video-course-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .video-course-modal.active {
+            display: flex;
+        }
+        
+        .video-course-content {
+            width: 90%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .video-course-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .video-course-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .video-course-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .video-course-body {
+            padding: 1.5rem;
+        }
+        
+        .video-course-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .video-option {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .video-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--ict-purple);
+        }
+        
+        .video-option-icon {
+            font-size: 2.5rem;
+            color: var(--ict-purple);
+            margin-bottom: 1rem;
+        }
+        
+        .video-option h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-option p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        /* Responsive Styles */
+        
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .contact-container {
+                flex-direction: column;
+            }
+            .levels-container {
+                flex-direction: column;
+            }
+            .level-card {
+                min-width: 100%;
+            }
+            .journal-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 20px;
+            }
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--secondary);
+                transition: all 0.3s ease;
+                padding: 2rem;
+            }
+            nav.active {
+                left: 0;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 1rem 0;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+            .chatbot-window {
+                width: 300px;
+            }
+            .pdf-tabs {
+                flex-wrap: wrap;
+            }
+            .pdf-tab {
+                flex: 1;
+                min-width: 100px;
+                text-align: center;
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+            .journal-entry-details {
+                grid-template-columns: 1fr;
+            }
+            .video-course-options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 4rem 0;
+            }
+            .chatbot-window {
+                width: 280px;
+                right: -20px;
+            }
+            .pdf-viewer-content {
+                width: 95%;
+                height: 85vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">QML<span>254</span></div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#strategies">ICT Strategies</a></li>
+                    <li><a href="#resources">Free Resources</a></li>
+                    <li><a href="#tools">Trading Tools</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" id="membersLink">Members Area</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Master ICT Concepts with <span>QML254</span></h1>
+                <p>Professional trading mentorship focused on Inner Circle Trader strategies to help you identify smart money concepts, liquidity pools, and high-probability setups.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary" id="joinMentorshipBtn">Join Mentorship</a>
+                    <a href="#resources" class="btn btn-secondary">Free Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Specializing in ICT trading methodologies to help traders understand market structure and smart money movements.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="QML254 Trader">
+                </div>
+                <div class="about-text">
+                    <h3>ICT Trading Specialist</h3>
+                    <p>I'm a dedicated trader specializing in Inner Circle Trader methodologies, helping students understand market structure, order blocks, fair value gaps, and liquidity concepts.</p>
+                    <p>With years of experience applying ICT concepts in forex and cryptocurrency markets, I've developed a systematic approach to identifying high-probability trading opportunities based on smart money principles.</p>
+                    <p>My mission is to simplify ICT's teachings and provide actionable strategies that work across all timeframes and market conditions.</p>
+                    <a href="#" class="btn btn-primary" id="learnIctBtn">Learn ICT Basics</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ICT Strategies Section -->
+    <section class="section ict-strategies" id="strategies">
+        <div class="container">
+            <div class="section-title">
+                <h2>ICT Trading Strategies</h2>
+                <p>Core methodologies based on Inner Circle Trader concepts that form the foundation of my trading approach.</p>
+            </div>
+            <div class="strategies-grid">
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-chess-board"></i>
+                    </div>
+                    <h3>Market Structure</h3>
+                    <p>Learn to identify shifts in market structure, break of structure (BOS), and changes of character (CHOCH) for precise entries and exits.</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>Order Blocks</h3>
+                    <p>Master the identification and trading of order blocks - the foundation of institutional trading activity and price reversals.</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-gap"></i>
+                    </div>
+                    <h3>FVG Trading</h3>
+                    <p>Trade fair value gaps (FVGs) with precision, understanding how they act as magnets for price and create high-probability setups.</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Liquidity Pools</h3>
+                    <p>Identify and trade liquidity grabs - where institutional traders trigger stops before reversing price direction.</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time & Price</h3>
+                    <p>Combine time-based analysis with price action to anticipate major market moves at specific times of day.</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Multi-Timeframe</h3>
+                    <p>Learn to analyze multiple timeframes simultaneously to confirm high-probability ICT setups with proper alignment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Resources Section -->
+    <section class="section free-resources" id="resources">
+        <div class="container">
+            <div class="section-title">
+                <h2>Free Resources</h2>
+                <p>Get started with these free ICT trading resources and educational materials.</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>ICT Basics PDF</h3>
+                    <p>Introduction to Inner Circle Trader concepts and foundational market structure principles.</p>
+                    <a href="#" class="resource-btn" id="ictPdfBtn">View Notes</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Free Video Course</h3>
+                    <p>3-part video series on identifying and trading order blocks and fair value gaps.</p>
+                    <a href="#" class="resource-btn" id="videoCourseBtn">Watch Now</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Weekly Market Outlook</h3>
+                    <p>Get our free weekly analysis highlighting key ICT levels and potential setups.</p>
+                    <a href="#" class="resource-btn">Subscribe</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Beginner's Guide</h3>
+                    <p>Complete guide to forex trading terminology and basic ICT concepts.</p>
+                    <a href="#" class="resource-btn">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Tools Section -->
+    <section class="section trading-tools" id="tools">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trading Tools</h2>
+                <p>Essential tools and indicators to enhance your ICT trading experience.</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>ICT Templates</h3>
+                    <p>Pre-configured TradingView templates with ICT indicators and drawing tools.</p>
+                    <a href="#" class="tool-btn">Download</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Risk Calculator</h3>
+                    <p>Calculate position sizes based on your risk parameters and account balance.</p>
+                    <a href="#" class="tool-btn" id="riskCalculatorBtn">Use Tool</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Economic Calendar</h3>
+                    <p>Track important economic events and news releases that impact the markets.</p>
+                    <a href="#" class="tool-btn">View Calendar</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Trading Journal</h3>
+                    <p>Document and analyze your trades to improve your performance over time.</p>
+                    <a href="#" class="tool-btn" id="tradingJournalBtn">Start Journaling</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Journal Section -->
+    <section class="section trading-journal">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trading Journal</h2>
+                <p>Track your progress and improve your trading performance with our journal system.</p>
+            </div>
+            <div class="journal-container">
+                <div class="journal-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Trading Journal">
+                </div>
+                <div class="journal-text">
+                    <h3>Why Keep a Trading Journal?</h3>
+                    <p>A trading journal is essential for tracking your performance, identifying patterns in your trading, and improving your decision-making process.</p>
+                    <p>Our journal system helps you document your trades, analyze your mistakes, and reinforce good trading habits based on ICT principles.</p>
+                    <p>Features include trade screenshots, emotional state tracking, strategy analysis, and performance metrics.</p>
+                    <a href="#" class="btn btn-primary" id="journalLearnMoreBtn">Start Your Journal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentorship Levels Section -->
+    <section class="section mentorship-levels">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mentorship Program</h2>
+                <p>Structured learning path with progressive ICT concepts at each level.</p>
+            </div>
+            <div class="levels-container">
+                <div class="level-card">
+                    <div class="level-header">
+                        <h3 class="level-name">Foundation</h3>
+                        <div class="level-price">FREE</div>
+                    </div>
+                    <ul class="level-features">
+                        <li><i class="fas fa-check"></i> Market Structure Mastery</li>
+                        <li><i class="fas fa-check"></i> Order Block Identification</li>
+                        <li><i class="fas fa-check"></i> Basic FVG Trading</li>
+                        <li><i class="fas fa-check"></i> Weekly Group Coaching</li>
+                        <li><i class="fas fa-check"></i> Access to Basic Resources</li>
+                    </ul>
+                    <a href="#" class="level-btn" data-level="foundation">Join Now</a>
+                </div>
+                <div class="level-card">
+                    <div class="level-header">
+                        <h3 class="level-name">Intermediate</h3>
+                        <div class="level-price">FREE</div>
+                    </div>
+                    <ul class="level-features">
+                        <li><i class="fas fa-check"></i> Advanced FVG Strategies</li>
+                        <li><i class="fas fa-check"></i> Liquidity Pool Analysis</li>
+                        <li><i class="fas fa-check"></i> Time & Price Concepts</li>
+                        <li><i class="fas fa-check"></i> Bi-Weekly 1-on-1 Sessions</li>
+                        <li><i class="fas fa-check"></i> Intermediate Resources</li>
+                    </ul>
+                    <a href="#" class="level-btn" data-level="intermediate">Join Now</a>
+                </div>
+                <div class="level-card">
+                    <div class="level-header">
+                        <h3 class="level-name">Advanced</h3>
+                        <div class="level-price">FREE</div>
+                    </div>
+                    <ul class="level-features">
+                        <li><i class="fas fa-check"></i> Institutional Liquidity Concepts</li>
+                        <li><i class="fas fa-check"></i> Multi-Timeframe Analysis</li>
+                        <li><i class="fas fa-check"></i> Advanced Risk Management</li>
+                        <li><i class="fas fa-check"></i> Weekly 1-on-1 Coaching</li>
+                        <li><i class="fas fa-check"></i> All Resources & Tools</li>
+                    </ul>
+                    <a href="#" class="level-btn" data-level="advanced">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>8+</h3>
+                    <p>Years Trading</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Students Mentored</p>
+                </div>
+                <div class="stat-item">
+                    <h3>72%</h3>
+                    <p>Win Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1:3+</h3>
+                    <p>Risk-Reward</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear what our clients say about their trading journey with QML254 ICT methodologies.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"QML254's ICT mentorship transformed my trading. I went from inconsistent to consistently profitable by understanding market structure and order blocks. The liquidity concepts alone were game-changing!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>David Kim</h4>
+                            <p>Forex Trader</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The FVG and liquidity pool strategies work incredibly well. I've been applying these ICT concepts with a 75% win rate. QML254 explains complex ideas in simple, actionable ways."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Crypto Trader</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"As someone new to ICT concepts, QML254's step-by-step approach helped me grasp market structure quickly. I now trade with confidence knowing where institutions are likely to move price."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Swing Trader</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to master ICT trading strategies? Reach out for mentorship, questions, or collaboration.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Have questions about ICT strategies or want to join our mentorship program? Contact me directly.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>qml254fx@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone/WhatsApp</h4>
+                                <p>+254 103 551 055</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div>
+                                <h4>Telegram</h4>
+                                <p>t.me/Qml254</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@qml254" class="social-link" target="_blank" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@qml254" class="social-link" target="_blank" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/qml254" class="social-link" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.twitter.com/qml254" class="social-link" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/qml254" class="social-link" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Area Section -->
+    <section class="section members-area" id="membersArea">
+        <div class="container">
+            <div class="section-title">
+                <h2>Members Area</h2>
+                <p>Exclusive resources for registered members of QML254 mentorship program.</p>
+            </div>
+            <div class="members-grid">
+                <div class="member-resource">
+                    <h3>ICT Market Structure PDF</h3>
+                    <p>Complete guide to identifying and trading market structure shifts using ICT methodologies.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+                <div class="member-resource">
+                    <h3>Order Block Masterclass</h3>
+                    <p>Video course on identifying high-probability order blocks across all timeframes.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+                <div class="member-resource">
+                    <h3>Weekly Analysis Videos</h3>
+                    <p>Current week's market analysis highlighting key ICT levels and potential setups.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Watch Now</a>
+                </div>
+                <div class="member-resource">
+                    <h3>Telegram Group Access</h3>
+                    <p>Join our private Telegram group for daily market discussions and Q&A sessions.</p>
+                    <a href="https://t.me/Qml254" class="download-btn" target="_blank"><i class="fab fa-telegram"></i> Join Group</a>
+                </div>
+                <div class="member-resource">
+                    <h3>ICT Trading Templates</h3>
+                    <p>Download our custom trading templates for TradingView with ICT indicators pre-loaded.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+                </div>
+                <div class="member-resource">
+                    <h3>Mentorship Session Recordings</h3>
+                    <p>Access recordings of all previous group coaching sessions and Q&A calls.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Access</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>QML254</h3>
+                    <p>ICT-focused trading education and mentorship to help you trade like the smart money.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#strategies">ICT Strategies</a></li>
+                        <li><a href="#resources">Free Resources</a></li>
+                        <li><a href="#tools">Trading Tools</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>ICT Concepts</h3>
+                    <ul>
+                        <li><a href="#">Market Structure</a></li>
+                        <li><a href="#">Order Blocks</a></li>
+                        <li><a href="#">Fair Value Gaps</a></li>
+                        <li><a href="#">Liquidity Pools</a></li>
+                        <li><a href="#">Time & Price</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@qml254" target="_blank">YouTube</a></li>
+                        <li><a href="https://www.tiktok.com/@qml254" target="_blank">TikTok</a></li>
+                        <li><a href="https://www.instagram.com/qml254" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.twitter.com/qml254" target="_blank">Twitter</a></li>
+                        <li><a href="https://www.facebook.com/qml254" target="_blank">Facebook</a></li>
+                        <li><a href="https://t.me/Qml254" target="_blank">Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 QML254. All Rights Reserved. | Specializing in Inner Circle Trader Methodologies</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Join Mentorship Program</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email Address</label>
+                        <input type="email" id="regEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPhone">Phone Number</label>
+                        <input type="tel" id="regPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regLevel">Mentorship Level</label>
+                        <select id="regLevel" class="form-control" required>
+                            <option value="">Select Level</option>
+                            <option value="foundation">Foundation (FREE)</option>
+                            <option value="intermediate">Intermediate (FREE)</option>
+                            <option value="advanced">Advanced (FREE)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="regExperience">Trading Experience</label>
+                        <select id="regExperience" class="form-control" required>
+                            <option value="">Select Experience Level</option>
+                            <option value="beginner">Beginner (0-6 months)</option>
+                            <option value="intermediate">Intermediate (6-12 months)</option>
+                            <option value="advanced">Advanced (1+ years)</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="submitRegistration">Complete Registration</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ICT Basics Modal -->
+    <div class="modal" id="ictBasicsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>ICT Basics Introduction</h3>
+                <button class="modal-close" id="ictModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>What is ICT Trading?</h4>
+                <p>Inner Circle Trader (ICT) methodologies focus on identifying how institutional traders move markets and how retail traders can align with these movements.</p>
+
+                <h4>Core Concepts:</h4>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li>Market Structure: Identifying trends and potential reversals</li>
+                    <li>Order Blocks: Areas where institutions place their orders</li>
+                    <li>Fair Value Gaps: Imbalances in price that often get filled</li>
+                    <li>Liquidity Pools: Areas where stops are likely clustered</li>
+                </ul>
+
+                <h4>Free Resources:</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="#" class="resource-btn" style="text-align: center; margin-bottom: 0.5rem;">
+                        <i class="fas fa-file-pdf"></i> Download ICT Basics PDF
+                    </a>
+                    <a href="#" class="resource-btn" style="text-align: center;">
+                        <i class="fas fa-video"></i> Watch Introduction Video
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="joinFromIctBtn">Join Mentorship</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div class="pdf-viewer-modal" id="pdfViewerModal">
+        <div class="pdf-viewer-content">
+            <div class="pdf-viewer-header">
+                <div class="pdf-viewer-title">ICT Basics Notes</div>
+                <button class="pdf-viewer-close" id="pdfViewerClose">&times;</button>
+            </div>
+            <div class="pdf-viewer-body">
+                <div class="pdf-tabs">
+                    <div class="pdf-tab active" data-pdf="ictep2">ICT EP2</div>
+                    <div class="pdf-tab" data-pdf="ictep3">ICT EP3</div>
+                    <div class="pdf-tab" data-pdf="ictep4">ICT EP4</div>
+                    <div class="pdf-tab" data-pdf="ictep5">ICT EP5</div>
+                    <div class="pdf-tab" data-pdf="ictep6">ICT EP6</div>
+                    <div class="pdf-tab" data-pdf="ictep7">ICT EP7</div>
+                    <div class="pdf-tab" data-pdf="ictep8">ICT EP8</div>
+                    <div class="pdf-tab" data-pdf="ictep9">ICT EP9</div>
+                    <div class="pdf-tab" data-pdf="ictep10">ICT EP10</div>
+                    <div class="pdf-tab" data-pdf="ictep11">ICT EP11</div>
+                </div>
+                <iframe class="pdf-viewer-iframe" id="pdfViewerIframe" src="ictep2.pdf#toolbar=0&navpanes=0" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Risk Calculator Modal -->
+    <div class="risk-calculator-modal" id="riskCalculatorModal">
+        <div class="risk-calculator-content">
+            <div class="risk-calculator-header">
+                <h3>Risk Calculator</h3>
+                <button class="risk-calculator-close" id="riskCalculatorClose">&times;</button>
+            </div>
+            <div class="risk-calculator-body">
+                <form id="riskCalculatorForm">
+                    <div class="form-group">
+                        <label for="accountBalance">Account Balance ($)</label>
+                        <input type="number" id="accountBalance" class="form-control" required min="1" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="riskPercentage">Risk Percentage (%)</label>
+                        <input type="number" id="riskPercentage" class="form-control" required min="0.1" max="100" step="0.1" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="stopLossPips">Stop Loss (Pips)</label>
+                        <input type="number" id="stopLossPips" class="form-control" required min="1" step="0.1" value="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="pair">Currency Pair</label>
+                        <select id="pair" class="form-control">
+                            <option value="EURUSD">EUR/USD</option>
+                            <option value="GBPUSD">GBP/USD</option>
+                            <option value="USDJPY">USD/JPY</option>
+                            <option value="AUDUSD">AUD/USD</option>
+                            <option value="USDCAD">USD/CAD</option>
+                            <option value="USDCHF">USD/CHF</option>
+                            <option value="NZDUSD">NZD/USD</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Calculate Position Size</button>
+                </form>
+
+                <div class="risk-result" id="riskResult">
+                    <h4>Position Size Calculation</h4>
+                    <p><strong>Risk Amount:</strong> $<span id="riskAmount">0.00</span></p>
+                    <p><strong>Position Size:</strong> <span id="positionSize">0.00</span> lots</p>
+                    <p><strong>Units:</strong> <span id="units">0</span> units</p>
+                    <p><strong>Pip Value:</strong> $<span id="pipValue">0.00</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trading Journal Modal -->
+    <div class="journal-modal" id="journalModal">
+        <div class="journal-content">
+            <div class="journal-header">
+                <h3>Trading Journal</h3>
+                <button class="journal-close" id="journalClose">&times;</button>
+            </div>
+            <div class="journal-body">
+                <form id="journalForm" style="margin-bottom: 2rem;">
+                    <div class="form-group">
+                        <label for="tradeDate">Trade Date</label>
+                        <input type="date" id="tradeDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tradePair">Currency Pair</label>
+                        <select id="tradePair" class="form-control" required>
+                            <option value="">Select Pair</option>
+                            <option value="EURUSD">EUR/USD</option>
+                            <option value="GBPUSD">GBP/USD</option>
+                            <option value="USDJPY">USD/JPY</option>
+                            <option value="AUDUSD">AUD/USD</option>
+                            <option value="USDCAD">USD/CAD</option>
+                            <option value="USDCHF">USD/CHF</option>
+                            <option value="NZDUSD">NZD/USD</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tradeDirection">Direction</label>
+                        <select id="tradeDirection" class="form-control" required>
+                            <option value="">Select Direction</option>
+                            <option value="buy">Buy/Long</option>
+                            <option value="sell">Sell/Short</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="entryPrice">Entry Price</label>
+                        <input type="number" id="entryPrice" class="form-control" required step="0.00001">
+                    </div>
+                    <div class="form-group">
+                        <label for="exitPrice">Exit Price</label>
+                        <input type="number" id="exitPrice" class="form-control" required step="0.00001">
+                    </div>
+                    <div class="form-group">
+                        <label for="positionSize">Position Size (lots)</label>
+                        <input type="number" id="positionSizeJournal" class="form-control" required min="0.01" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="tradeNote">Notes (Strategy, Emotions, etc.)</label>
+                        <textarea id="tradeNote" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Add Trade</button>
+                </form>
+
+                <h4 style="margin-bottom: 1rem;">Recent Trades</h4>
+                <div id="journalEntries">
+                    <!-- Journal entries will be added here dynamically -->
+                    <div class="journal-entry">
+                        <div class="journal-entry-header">
+                            <span class="journal-entry-date">2023-06-15</span>
+                            <span class="journal-entry-pair">EUR/USD</span>
+                        </div>
+                        <div class="journal-entry-details">
+                            <div><span>Direction:</span> Buy</div>
+                            <div><span>Entry:</span> 1.0925</div>
+                            <div><span>Exit:</span> 1.0950</div>
+                            <div><span>Size:</span> 0.5 lots</div>
+                        </div>
+                        <div class="journal-entry-note">FVG buy setup on 15m timeframe. Stayed patient for entry confirmation.</div>
+                        <div class="journal-entry-profit">Profit: $125.00</div>
+                    </div>
+
+                    <div class="journal-entry">
+                        <div class="journal-entry-header">
+                            <span class="journal-entry-date">2023-06-14</span>
+                            <span class="journal-entry-pair">GBP/USD</span>
+                        </div>
+                        <div class="journal-entry-details">
+                            <div><span>Direction:</span> Sell</div>
+                            <div><span>Entry:</span> 1.2750</div>
+                            <div><span>Exit:</span> 1.2725</div>
+                            <div><span>Size:</span> 0.3 lots</div>
+                        </div>
+                        <div class="journal-entry-note">Order block rejection at daily level. Took partial profits too early.</div>
+                        <div class="journal-entry-profit">Profit: $75.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Course Modal -->
+    <div class="video-course-modal" id="videoCourseModal">
+        <div class="video-course-content">
+            <div class="video-course-header">
+                <h3>Free Video Courses</h3>
+                <button class="video-course-close" id="videoCourseClose">&times;</button>
+            </div>
+            <div class="video-course-body">
+                <p style="margin-bottom: 1.5rem; text-align: center;">Select a video course platform to access free ICT trading content:</p>
+
+                <div class="video-course-options">
+                    <div class="video-option" id="qmlChannelOption">
+                        <div class="video-option-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <h4>QML254 YouTube Channel</h4>
+                        <p>Access our free ICT trading course with market structure, order blocks, and FVG strategies.</p>
+                        <button class="btn btn-primary" style="width: 100%;">Watch Now</button>
+                    </div>
+
+                    <div class="video-option" id="ictChannelOption">
+                        <div class="video-option-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <h4>Inner Circle Trader Channel</h4>
+                        <p>Official ICT YouTube channel with foundational concepts and mentorship content.</p>
+                        <button class="btn btn-primary" style="width: 100%;">Watch Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-btn" id="chatbotBtn">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3>QML254 Trading Assistant</h3>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-body" id="chatbotBody">
+                <div class="chat-message bot-message">
+                    <div class="message-content">
+                        Hi there! I'm QML254's trading assistant. How can I help you with ICT concepts today?
+                    </div>
+                </div>
+                <div class="chat-message bot-message">
+                    <div class="message-content">
+                        You can ask me about:
+                        <br>- Market structure
+                        <br>- Order blocks
+                        <br>- Fair value gaps
+                        <br>- Liquidity concepts
+                        <br>- Risk management
+                        <br><br>Type your question below!
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Ask about ICT strategies...">
+                <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Registration Modal
+        const joinMentorshipBtn = document.getElementById('joinMentorshipBtn');
+        const registrationModal = document.getElementById('registrationModal');
+        const modalClose = document.getElementById('modalClose');
+        const submitRegistration = document.getElementById('submitRegistration');
+
+        joinMentorshipBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            registrationModal.classList.add('active');
+        });
+
+        modalClose.addEventListener('click', () => {
+            registrationModal.classList.remove('active');
+        });
+
+        submitRegistration.addEventListener('click', () => {
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const level = document.getElementById('regLevel').value;
+            const experience = document.getElementById('regExperience').value;
+
+            if (name && email && phone && level && experience) {
+                // Send email notification
+                const subject = `New Mentorship Registration: ${name}`;
+                const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0ALevel: ${level}%0D%0AExperience: ${experience}`;
+
+                window.open(`mailto:qml254fx@gmail.com?subject=${subject}&body=${body}`);
+
+                alert(`Thank you, ${name}! Your registration for ${level} level has been received. We'll contact you shortly.`);
+
+                // Redirect to members area (simulating successful registration)
+                document.getElementById('membersArea').classList.add('active');
+                document.querySelector('nav ul li a[href="#membersArea"]').textContent = 'Members Area';
+                registrationModal.classList.remove('active');
+
+                // Scroll to members area
+                document.getElementById('membersArea').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // ICT Basics Modal
+        const learnIctBtn = document.getElementById('learnIctBtn');
+        const ictBasicsModal = document.getElementById('ictBasicsModal');
+        const ictModalClose = document.getElementById('ictModalClose');
+        const joinFromIctBtn = document.getElementById('joinFromIctBtn');
+
+        learnIctBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            ictBasicsModal.classList.add('active');
+        });
+
+        ictModalClose.addEventListener('click', () => {
+            ictBasicsModal.classList.remove('active');
+        });
+
+        joinFromIctBtn.addEventListener('click', () => {
+            ictBasicsModal.classList.remove('active');
+            registrationModal.classList.add('active');
+        });
+
+        // Members Link
+        const membersLink = document.getElementById('membersLink');
+        const membersArea = document.getElementById('membersArea');
+
+        membersLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            membersArea.classList.add('active');
+            membersArea.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // PDF Viewer Functionality
+        const ictPdfBtn = document.getElementById('ictPdfBtn');
+        const pdfViewerModal = document.getElementById('pdfViewerModal');
+        const pdfViewerClose = document.getElementById('pdfViewerClose');
+        const pdfTabs = document.querySelectorAll('.pdf-tab');
+        const pdfViewerIframe = document.getElementById('pdfViewerIframe');
+
+        ictPdfBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            pdfViewerModal.classList.add('active');
+        });
+
+        pdfViewerClose.addEventListener('click', () => {
+            pdfViewerModal.classList.remove('active');
+        });
+
+        pdfTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                pdfTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                // Update iframe source
+                const pdfName = tab.getAttribute('data-pdf');
+                pdfViewerIframe.src = `${pdfName}.pdf#toolbar=0&navpanes=0`;
+            });
+        });
+
+        // Risk Calculator Modal
+        const riskCalculatorBtn = document.getElementById('riskCalculatorBtn');
+        const riskCalculatorModal = document.getElementById('riskCalculatorModal');
+        const riskCalculatorClose = document.getElementById('riskCalculatorClose');
+        const riskCalculatorForm = document.getElementById('riskCalculatorForm');
+        const riskResult = document.getElementById('riskResult');
+
+        riskCalculatorBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            riskCalculatorModal.classList.add('active');
+        });
+
+        riskCalculatorClose.addEventListener('click', () => {
+            riskCalculatorModal.classList.remove('active');
+        });
+
+        riskCalculatorForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const accountBalance = parseFloat(document.getElementById('accountBalance').value);
+            const riskPercentage = parseFloat(document.getElementById('riskPercentage').value);
+            const stopLossPips = parseFloat(document.getElementById('stopLossPips').value);
+            const pair = document.getElementById('pair').value;
+
+            if (accountBalance && riskPercentage && stopLossPips) {
+                // Calculate risk amount
+                const riskAmount = accountBalance * (riskPercentage / 100);
+
+                // Calculate position size (assuming standard lot size)
+                // For forex, 1 standard lot = 100,000 units
+                // Pip value for standard lot is approximately $10 for XXX/USD pairs
+                let pipValue = 10; // Default for XXX/USD pairs
+
+                // Adjust for USD/XXX pairs
+                if (pair.startsWith('USD/')) {
+                    pipValue = 10;
+                } else if (pair === 'USDJPY' || pair === 'USDCHF' || pair === 'USDCAD') {
+                    // For these pairs, pip value is approximately $8.93 for a standard lot
+                    pipValue = 8.93;
+                }
+
+                // Calculate position size in lots
+                const positionSize = (riskAmount / (stopLossPips * pipValue)).toFixed(2);
+
+                // Calculate units (1 lot = 100,000 units)
+                const units = Math.round(positionSize * 100000);
+
+                // Update results
+                document.getElementById('riskAmount').textContent = riskAmount.toFixed(2);
+                document.getElementById('positionSize').textContent = positionSize;
+                document.getElementById('units').textContent = units.toLocaleString();
+                document.getElementById('pipValue').textContent = pipValue.toFixed(2);
+
+                // Show results
+                riskResult.style.display = 'block';
+            }
+        });
+
+        // Trading Journal Modal
+        const tradingJournalBtn = document.getElementById('tradingJournalBtn');
+        const journalLearnMoreBtn = document.getElementById('journalLearnMoreBtn');
+        const journalModal = document.getElementById('journalModal');
+        const journalClose = document.getElementById('journalClose');
+        const journalForm = document.getElementById('journalForm');
+        const journalEntries = document.getElementById('journalEntries');
+
+        tradingJournalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            journalModal.classList.add('active');
+        });
+
+        journalLearnMoreBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            journalModal.classList.add('active');
+        });
+
+        journalClose.addEventListener('click', () => {
+            journalModal.classList.remove('active');
+        });
+
+        journalForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const tradeDate = document.getElementById('tradeDate').value;
+                    const tradePair = document.getElementById('tradePair').value;
+                    const tradeDirection = document.getElementById('tradeDirection').value;
+                    const entryPrice = parseFloat(document.getElementById('entryPrice').value);
+                    const exitPrice = parseFloat(document.getElementById('exitPrice').value);
+                    const positionSize = parseFloat(document.getElementById('positionSizeJournal').value);
+                    const tradeNote = document.getElementById('tradeNote').value;
+
+                    if (tradeDate && tradePair && tradeDirection && entryPrice && exitPrice && positionSize) {
+                        // Calculate profit/loss
+                        // For forex, profit = (exitPrice - entryPrice) * positionSize * 100000
+                        // For sell trades, profit = (entryPrice - exitPrice) * positionSize * 100000
+                        let profit = 0;
+                        if (tradeDirection === 'buy') {
+                            profit = (exitPrice - entryPrice) * positionSize * 100000;
+                        } else {
+                            profit = (entryPrice - exitPrice) * positionSize * 100000;
+                        }
+
+                        // Create new journal entry
+                        const entryDiv = document.createElement('div');
+                        entryDiv.className = 'journal-entry';
+
+                        entryDiv.innerHTML = `
+                    <div class="journal-entry-header">
+                        <span class="journal-entry-date">${tradeDate}</span>
+                        <span class="journal-entry-pair">${tradePair}</span>
+                    </div>
+                    <div class="journal-entry-details">
+                        <div><span>Direction:</span> ${tradeDirection === 'buy' ? 'Buy' : 'Sell'}</div>
+                        <div><span>Entry:</span> ${entryPrice.toFixed(5)}</div>
+                        <div><span>Exit:</span> ${exitPrice.toFixed(5)}</div>
+                        <div><span>Size:</span> ${positionSize} lots</div>
+                    </div>
+                    ${tradeNote ? `<div class="journal-entry-note">${tradeNote}</div>` : ''}
+                    <div class="${profit >= 0 ? 'journal-entry-profit' : 'journal-entry-loss'}">
+                        ${profit >= 0 ? 'Profit' : 'Loss'}: $${Math.abs(profit).toFixed(2)}
+                    </div>
+                `;
+                
+                // Add new entry at the top
+                journalEntries.insertBefore(entryDiv, journalEntries.firstChild);
+                
+                // Reset form
+                journalForm.reset();
+                
+                // Show success message
+                alert('Trade added to your journal successfully!');
+            }
+        });
+        
+        // Video Course Modal
+        const videoCourseBtn = document.getElementById('videoCourseBtn');
+        const videoCourseModal = document.getElementById('videoCourseModal');
+        const videoCourseClose = document.getElementById('videoCourseClose');
+        const qmlChannelOption = document.getElementById('qmlChannelOption');
+        const ictChannelOption = document.getElementById('ictChannelOption');
+        
+        videoCourseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            videoCourseModal.classList.add('active');
+        });
+        
+        videoCourseClose.addEventListener('click', () => {
+            videoCourseModal.classList.remove('active');
+        });
+        
+        qmlChannelOption.addEventListener('click', () => {
+            window.open('https://www.youtube.com/@qml254', '_blank');
+        });
+        
+        ictChannelOption.addEventListener('click', () => {
+            window.open('https://www.youtube.com/@innercircletrader', '_blank');
+        });
+        
+        // Chatbot Functionality
+        const chatbotBtn = document.getElementById('chatbotBtn');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotSend = document.getElementById('chatbotSend');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotBody = document.getElementById('chatbotBody');
+        
+        chatbotBtn.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+        });
+        
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
+        });
+        
+        function addBotMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message bot-message';
+            messageDiv.innerHTML = `<div class="message-content">${message}</div>`;
+            chatbotBody.appendChild(messageDiv);
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+        
+        function addUserMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message user-message';
+            messageDiv.innerHTML = `<div class="message-content">${message}</div>`;
+            chatbotBody.appendChild(messageDiv);
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+        
+        chatbotSend.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addUserMessage(message);
+                chatbotInput.value = '';
+                
+                // Process user message and generate bot response
+                setTimeout(() => {
+                    const lowerMessage = message.toLowerCase();
+                    
+                    // Greetings
+                    if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
+                        addBotMessage("Hello there! How can I assist you with ICT trading concepts today?");
+                    }
+                    // Market structure
+                    else if (lowerMessage.includes('market structure') || lowerMessage.includes('bos') || lowerMessage.includes('choch')) {
+                        addBotMessage("Market structure refers to the highs and lows that create trends. In ICT, we look for:<br><br>" +
+                                      "• <strong>Break of Structure (BOS)</strong>: When price breaks a previous high/low, indicating potential trend continuation<br>" +
+                                      "• <strong>Change of Character (CHOCH)</strong>: When price fails to make a new high/low, signaling potential reversal<br><br>" +
+                                      "Would you like me to explain how to identify these on a chart?");
+                    }
+                    // Order blocks
+                    else if (lowerMessage.includes('order block') || lowerMessage.includes('ob')) {
+                        addBotMessage("Order blocks are areas where institutional traders have placed their orders. These often become reversal zones. Key characteristics:<br><br>" +
+                                      "• Found at the base of large moves<br>" +
+                                      "• Typically a consolidation area before a strong move<br>" +
+                                      "• Price often returns to test these levels<br><br>" +
+                                      "Would you like me to show you how to identify order blocks?");
+                    }
+                    // Fair value gaps
+                    else if (lowerMessage.includes('fair value gap') || lowerMessage.includes('fvg')) {
+                        addBotMessage("Fair Value Gaps (FVGs) are price imbalances that often get filled. They appear as gaps between candles on higher timeframes and act as magnets for price.<br><br>" +
+                                      "To identify FVGs:<br>" +
+                                      "1. Look for candles where the wicks don't overlap<br>" +
+                                      "2. The larger the gap, the stronger the imbalance<br>" +
+                                      "3. Price often returns to fill these gaps<br><br>" +
+                                      "Would you like me to explain how to trade FVGs?");
+                    }
+                    // Liquidity
+                    else if (lowerMessage.includes('liquidity') || lowerMessage.includes('liq')) {
+                        addBotMessage("In ICT, liquidity refers to areas where stops are clustered, which institutional traders target. There are two main types:<br><br>" +
+                                      "• <strong>Buy-side liquidity</strong>: Below swing lows where sell stops are located<br>" +
+                                      "• <strong>Sell-side liquidity</strong>: Above swing highs where buy stops are located<br><br>" +
+                                      "Smart money often sweeps these liquidity pools before reversing price.");
+                    }
+                    // Risk management
+                    else if (lowerMessage.includes('risk') || lowerMessage.includes('manage')) {
+                        addBotMessage("Proper risk management is crucial in trading. ICT recommends:<br><br>" +
+                                      "• Risking no more than 1-2% of your account per trade<br>" +
+                                      "• Using stop losses based on market structure<br>" +
+                                      "• Taking partial profits at key levels<br><br>" +
+                                      "Would you like me to open the risk calculator tool for you?");
+                    }
+                    // Mentorship
+                    else if (lowerMessage.includes('mentorship') || lowerMessage.includes('join') || lowerMessage.includes('program')) {
+                        addBotMessage("Our mentorship program has 3 FREE levels (Foundation, Intermediate, Advanced) covering all ICT concepts. Would you like me to open the registration form for you?");
+                    }
+                    // Positive response
+                    else if (lowerMessage.includes('yes') || lowerMessage.includes('sure') || lowerMessage.includes('ok') || lowerMessage.includes('please')) {
+                        if (message.includes('risk')) {
+                            addBotMessage("Opening the risk calculator tool for you...");
+                            setTimeout(() => {
+                                riskCalculatorModal.classList.add('active');
+                                chatbotWindow.classList.remove('active');
+                            }, 1000);
+                        }
+                        else if (message.includes('register') || message.includes('mentorship') || message.includes('program')) {
+                            addBotMessage("Opening the registration form for you...");
+                            setTimeout(() => {
+                                registrationModal.classList.add('active');
+                                chatbotWindow.classList.remove('active');
+                            }, 1000);
+                        }
+                        else {
+                            addBotMessage("Great! I'm happy to help. What specific question do you have about that topic?");
+                        }
+                    }
+                    // Negative response
+                    else if (lowerMessage.includes('no') || lowerMessage.includes('not') || lowerMessage.includes('nope')) {
+                        addBotMessage("No problem! Is there something else I can help you with regarding ICT trading?");
+                    }
+                    // Default response
+                    else {
+                        addBotMessage("I'm still learning about ICT concepts. For detailed questions, you might find these resources helpful:<br><br>" +
+                                      "• <a href='#' id='ictPdfLink' style='color: var(--ict-purple);'>ICT Basics PDF</a><br>" +
+                                      "• <a href='#' id='videoCourseLink' style='color: var(--ict-purple);'>Free Video Course</a><br><br>" +
+                                      "Or you can contact me on WhatsApp for personalized assistance. Would you like me to connect you now?");
+                        
+                        // Add event listeners to the links
+                        document.getElementById('ictPdfLink').addEventListener('click', (e) => {
+                            e.preventDefault();
+                            pdfViewerModal.classList.add('active');
+                            chatbotWindow.classList.remove('active');
+                        });
+                        
+                        document.getElementById('videoCourseLink').addEventListener('click', (e) => {
+                            e.preventDefault();
+                            videoCourseModal.classList.add('active');
+                            chatbotWindow.classList.remove('active');
+                        });
+                    }
+                }, 800);
+            }
+        }
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Send email notification
+            const emailSubject = `New Message from ${name}: ${subject}`;
+            const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+            
+            window.open(`mailto:qml254fx@gmail.com?subject=${emailSubject}&body=${emailBody}`);
+            
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+            contactForm.reset();
+        });
+        
+        // Level Buttons
+        document.querySelectorAll('.level-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const level = btn.getAttribute('data-level');
+                document.getElementById('regLevel').value = level;
+                registrationModal.classList.add('active');
+            });
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === registrationModal) {
+                registrationModal.classList.remove('active');
+            }
+            if (e.target === ictBasicsModal) {
+                ictBasicsModal.classList.remove('active');
+            }
+            if (e.target === pdfViewerModal) {
+                pdfViewerModal.classList.remove('active');
+            }
+            if (e.target === riskCalculatorModal) {
+                riskCalculatorModal.classList.remove('active');
+            }
+            if (e.target === journalModal) {
+                journalModal.classList.remove('active');
+            }
+            if (e.target === videoCourseModal) {
+                videoCourseModal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>
