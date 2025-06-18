@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QML254 | ICT Forex Mentor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-         :root {
+        :root {
             --primary: #7e22ce;
             --secondary: #6b21a8;
             --accent: #f59e0b;
@@ -38,8 +37,8 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* Header Styles */
         
+        /* Header Styles */
         header {
             background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
             color: white;
@@ -98,8 +97,8 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-        /* Hero Section */
         
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -172,8 +171,8 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        /* About Section */
         
+        /* About Section */
         .section {
             padding: 6rem 0;
         }
@@ -228,8 +227,8 @@
             margin-bottom: 1.5rem;
             color: #64748b;
         }
-        /* ICT Strategies Section */
         
+        /* ICT Strategies Section */
         .ict-strategies {
             background-color: #f1f5f9;
         }
@@ -247,6 +246,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border-top: 4px solid var(--ict-purple);
+            cursor: pointer;
         }
         
         .strategy-card:hover {
@@ -269,8 +269,8 @@
         .strategy-card p {
             color: #64748b;
         }
-        /* Free Resources Section */
         
+        /* Free Resources Section */
         .free-resources {
             background-color: white;
         }
@@ -329,8 +329,8 @@
         .resource-btn:hover {
             background-color: var(--secondary);
         }
-        /* Mentorship Levels Section */
         
+        /* Mentorship Levels Section */
         .mentorship-levels {
             background-color: #f1f5f9;
         }
@@ -400,8 +400,8 @@
         .level-btn:hover {
             background-color: var(--secondary);
         }
-        /* Stats Section */
         
+        /* Stats Section */
         .stats {
             background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
             color: white;
@@ -426,8 +426,8 @@
             font-size: 1.1rem;
             opacity: 0.9;
         }
-        /* Testimonials */
         
+        /* Testimonials */
         .testimonials {
             padding: 6rem 0;
         }
@@ -474,8 +474,8 @@
             margin: 0;
             font-style: normal;
         }
-        /* Registration Modal */
         
+        /* Registration Modal */
         .modal {
             display: none;
             position: fixed;
@@ -571,8 +571,89 @@
             border-top: 1px solid #e2e8f0;
             text-align: right;
         }
-        /* Members Area Section */
         
+        /* Payment Methods */
+        .payment-methods {
+            margin: 1.5rem 0;
+            display: none;
+        }
+        
+        .payment-methods.active {
+            display: block;
+        }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-option:hover {
+            border-color: var(--ict-purple);
+            background-color: #f9fafb;
+        }
+        
+        .payment-option input[type="radio"] {
+            margin-right: 1rem;
+        }
+        
+        .payment-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--ict-purple);
+        }
+        
+        .payment-details {
+            display: none;
+            padding: 1rem;
+            background-color: #f8fafc;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .payment-details.active {
+            display: block;
+        }
+        
+        .payment-instructions {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .payment-confirm {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        .payment-confirm input {
+            margin-right: 0.5rem;
+        }
+        
+        /* WhatsApp Redirection */
+        .whatsapp-redirect {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .whatsapp-redirect.active {
+            display: block;
+        }
+        
+        .whatsapp-icon {
+            font-size: 3rem;
+            color: #25D366;
+            margin-bottom: 1rem;
+        }
+        
+        /* Members Area Section */
         .members-area {
             display: none;
             padding: 6rem 0;
@@ -628,8 +709,8 @@
         .download-btn:hover {
             background-color: var(--secondary);
         }
-        /* Contact Section */
         
+        /* Contact Section */
         .contact {
             background-color: #f1f5f9;
         }
@@ -707,8 +788,8 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        /* Footer */
         
+        /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
@@ -765,8 +846,8 @@
             color: #94a3b8;
             font-size: 0.9rem;
         }
-        /* AI Chatbot */
         
+        /* AI Chatbot */
         .chatbot-container {
             position: fixed;
             bottom: 30px;
@@ -900,8 +981,8 @@
         .chatbot-input button:hover {
             background-color: var(--secondary);
         }
-        /* PDF Viewer Modal */
         
+        /* PDF Viewer Modal */
         .pdf-viewer-modal {
             display: none;
             position: fixed;
@@ -984,8 +1065,8 @@
             width: 100%;
             height: 100%;
         }
-        /* Trading Tools Section */
         
+        /* Trading Tools Section */
         .trading-tools {
             background-color: white;
         }
@@ -1044,8 +1125,8 @@
         .tool-btn:hover {
             background-color: var(--secondary);
         }
-        /* Trading Journal Section */
         
+        /* Trading Journal Section */
         .trading-journal {
             background-color: #f1f5f9;
         }
@@ -1083,8 +1164,8 @@
             margin-bottom: 1.5rem;
             color: #64748b;
         }
-        /* Risk Calculator Modal */
         
+        /* Risk Calculator Modal */
         .risk-calculator-modal {
             display: none;
             position: fixed;
@@ -1150,8 +1231,8 @@
             color: var(--ict-purple);
             margin-bottom: 0.5rem;
         }
-        /* Trading Journal Modal */
         
+        /* Trading Journal Modal */
         .journal-modal {
             display: none;
             position: fixed;
@@ -1262,8 +1343,8 @@
             font-weight: bold;
             color: var(--danger);
         }
-        /* Video Course Modal */
         
+        /* Video Course Modal */
         .video-course-modal {
             display: none;
             position: fixed;
@@ -1351,21 +1432,104 @@
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
-        /* Responsive Styles */
         
+        /* Strategy Pages */
+        .strategy-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 4000;
+            overflow-y: auto;
+        }
+        
+        .strategy-page.active {
+            display: block;
+        }
+        
+        .strategy-header {
+            background: linear-gradient(135deg, var(--ict-purple), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .strategy-header h2 {
+            font-size: 1.8rem;
+        }
+        
+        .strategy-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .strategy-content {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .strategy-section {
+            margin-bottom: 2rem;
+        }
+        
+        .strategy-section h3 {
+            font-size: 1.5rem;
+            color: var(--ict-purple);
+            margin-bottom: 1rem;
+        }
+        
+        .strategy-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 1rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Payment Success Section */
+        .payment-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .payment-success.active {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Styles */
         @media (max-width: 992px) {
             .about-content {
                 flex-direction: column;
             }
+            
             .contact-container {
                 flex-direction: column;
             }
+            
             .levels-container {
                 flex-direction: column;
             }
+            
             .level-card {
                 min-width: 100%;
             }
+            
             .journal-container {
                 flex-direction: column;
             }
@@ -1375,6 +1539,7 @@
             .header-container {
                 padding: 0 20px;
             }
+            
             nav {
                 position: fixed;
                 top: 80px;
@@ -1385,36 +1550,46 @@
                 transition: all 0.3s ease;
                 padding: 2rem;
             }
+            
             nav.active {
                 left: 0;
             }
+            
             nav ul {
                 flex-direction: column;
             }
+            
             nav ul li {
                 margin: 1rem 0;
             }
+            
             .mobile-menu-btn {
                 display: block;
             }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
+            
             .btn {
                 width: 100%;
                 max-width: 250px;
                 text-align: center;
             }
+            
             .chatbot-window {
                 width: 300px;
             }
+            
             .pdf-tabs {
                 flex-wrap: wrap;
             }
+            
             .pdf-tab {
                 flex: 1;
                 min-width: 100px;
@@ -1422,9 +1597,11 @@
                 padding: 0.5rem;
                 font-size: 0.8rem;
             }
+            
             .journal-entry-details {
                 grid-template-columns: 1fr;
             }
+            
             .video-course-options {
                 grid-template-columns: 1fr;
             }
@@ -1434,19 +1611,24 @@
             .hero h1 {
                 font-size: 2rem;
             }
+            
             .hero p {
                 font-size: 1rem;
             }
+            
             .section-title h2 {
                 font-size: 2rem;
             }
+            
             .section {
                 padding: 4rem 0;
             }
+            
             .chatbot-window {
                 width: 280px;
                 right: -20px;
             }
+            
             .pdf-viewer-content {
                 width: 95%;
                 height: 85vh;
@@ -1454,7 +1636,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Header -->
     <header>
@@ -1521,42 +1702,42 @@
                 <p>Core methodologies based on Inner Circle Trader concepts that form the foundation of my trading approach.</p>
             </div>
             <div class="strategies-grid">
-                <div class="strategy-card">
+                <div class="strategy-card" id="marketStructureCard">
                     <div class="strategy-icon">
                         <i class="fas fa-chess-board"></i>
                     </div>
                     <h3>Market Structure</h3>
                     <p>Learn to identify shifts in market structure, break of structure (BOS), and changes of character (CHOCH) for precise entries and exits.</p>
                 </div>
-                <div class="strategy-card">
+                <div class="strategy-card" id="orderBlockCard">
                     <div class="strategy-icon">
                         <i class="fas fa-boxes"></i>
                     </div>
                     <h3>Order Blocks</h3>
                     <p>Master the identification and trading of order blocks - the foundation of institutional trading activity and price reversals.</p>
                 </div>
-                <div class="strategy-card">
+                <div class="strategy-card" id="fvgCard">
                     <div class="strategy-icon">
                         <i class="fas fa-gap"></i>
                     </div>
                     <h3>FVG Trading</h3>
                     <p>Trade fair value gaps (FVGs) with precision, understanding how they act as magnets for price and create high-probability setups.</p>
                 </div>
-                <div class="strategy-card">
+                <div class="strategy-card" id="liquidityCard">
                     <div class="strategy-icon">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
                     <h3>Liquidity Pools</h3>
                     <p>Identify and trade liquidity grabs - where institutional traders trigger stops before reversing price direction.</p>
                 </div>
-                <div class="strategy-card">
+                <div class="strategy-card" id="timePriceCard">
                     <div class="strategy-icon">
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3>Time & Price</h3>
                     <p>Combine time-based analysis with price action to anticipate major market moves at specific times of day.</p>
                 </div>
-                <div class="strategy-card">
+                <div class="strategy-card" id="multiTimeframeCard">
                     <div class="strategy-icon">
                         <i class="fas fa-layer-group"></i>
                     </div>
@@ -1641,7 +1822,7 @@
                     </div>
                     <h3>Economic Calendar</h3>
                     <p>Track important economic events and news releases that impact the markets.</p>
-                    <a href="#" class="tool-btn">View Calendar</a>
+                    <a href="https://www.forexfactory.com/" class="tool-btn" target="_blank">View Calendar</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon">
@@ -1702,7 +1883,7 @@
                 <div class="level-card">
                     <div class="level-header">
                         <h3 class="level-name">Intermediate</h3>
-                        <div class="level-price">FREE</div>
+                        <div class="level-price">$100</div>
                     </div>
                     <ul class="level-features">
                         <li><i class="fas fa-check"></i> Advanced FVG Strategies</li>
@@ -1716,7 +1897,7 @@
                 <div class="level-card">
                     <div class="level-header">
                         <h3 class="level-name">Advanced</h3>
-                        <div class="level-price">FREE</div>
+                        <div class="level-price">$100</div>
                     </div>
                     <ul class="level-features">
                         <li><i class="fas fa-check"></i> Institutional Liquidity Concepts</li>
@@ -1808,7 +1989,7 @@
                 <div class="contact-info">
                     <h3>Contact Information</h3>
                     <p>Have questions about ICT strategies or want to join our mentorship program? Contact me directly.</p>
-
+                    
                     <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon">
@@ -1825,7 +2006,7 @@
                             </div>
                             <div>
                                 <h4>Phone/WhatsApp</h4>
-                                <p>+254 103 551 055</p>
+                                <p>+254 768 510 396</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1847,7 +2028,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <h3>Follow Me</h3>
                     <div class="social-links">
                         <a href="https://www.youtube.com/@qml254" class="social-link" target="_blank" title="YouTube">
@@ -1956,11 +2137,10 @@
                 <div class="footer-col">
                     <h3>ICT Concepts</h3>
                     <ul>
-                        <li><a href="#">Market Structure</a></li>
-                        <li><a href="#">Order Blocks</a></li>
-                        <li><a href="#">Fair Value Gaps</a></li>
-                        <li><a href="#">Liquidity Pools</a></li>
-                        <li><a href="#">Time & Price</a></li>
+                        <li><a href="#" class="strategy-link" data-strategy="market-structure">Market Structure</a></li>
+                        <li><a href="#" class="strategy-link" data-strategy="order-blocks">Order Blocks</a></li>
+                        <li><a href="#" class="strategy-link" data-strategy="fvg">Fair Value Gaps</a></li>
+                        <li><a href="#" class="strategy-link" data-strategy="liquidity">Liquidity Pools</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -2007,8 +2187,8 @@
                         <select id="regLevel" class="form-control" required>
                             <option value="">Select Level</option>
                             <option value="foundation">Foundation (FREE)</option>
-                            <option value="intermediate">Intermediate (FREE)</option>
-                            <option value="advanced">Advanced (FREE)</option>
+                            <option value="intermediate">Intermediate ($100)</option>
+                            <option value="advanced">Advanced ($100)</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -2019,6 +2199,63 @@
                             <option value="intermediate">Intermediate (6-12 months)</option>
                             <option value="advanced">Advanced (1+ years)</option>
                         </select>
+                    </div>
+                    
+                    <div class="payment-methods" id="paymentMethods">
+                        <h4>Payment Methods</h4>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="paypal" name="payment" value="paypal">
+                            <div class="payment-icon">
+                                <i class="fab fa-paypal"></i>
+                            </div>
+                            <label for="paypal">PayPal</label>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="mpesa" name="payment" value="mpesa">
+                            <div class="payment-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <label for="mpesa">M-Pesa</label>
+                        </div>
+                        
+                        <div class="payment-details" id="paypalDetails">
+                            <div class="payment-instructions">
+                                <p>Please send $100 to <strong>rongachi60@gmail.com</strong> via PayPal</p>
+                                <p>After payment, you'll be redirected to our WhatsApp group for verification and access.</p>
+                            </div>
+                            <div class="payment-confirm">
+                                <input type="checkbox" id="paypalConfirm" required>
+                                <label for="paypalConfirm">I confirm I've made the PayPal payment</label>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details" id="mpesaDetails">
+                            <div class="payment-instructions">
+                                <p><strong>Option 1:</strong> Pay via Paybill</p>
+                                <p>Paybill Number: <strong>522533</strong></p>
+                                <p>Account Number: <strong>7944118</strong></p>
+                                <p><strong>Option 2:</strong> Send directly to phone number: <strong>+254768510396</strong></p>
+                                <p>Amount: <strong>KSh 15,000</strong> (approx. $100)</p>
+                                <p>After payment, you'll be redirected to our WhatsApp group for verification and access.</p>
+                            </div>
+                            <div class="payment-confirm">
+                                <input type="checkbox" id="mpesaConfirm" required>
+                                <label for="mpesaConfirm">I confirm I've made the M-Pesa payment</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="whatsapp-redirect" id="whatsappRedirect">
+                        <div class="whatsapp-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h4>Join Our WhatsApp Group</h4>
+                        <p>Click the button below to join our exclusive WhatsApp group for mentorship members.</p>
+                        <a href="https://wa.me/254768510396" class="btn btn-primary" target="_blank" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+                        </a>
                     </div>
                 </form>
             </div>
@@ -2038,7 +2275,7 @@
             <div class="modal-body">
                 <h4>What is ICT Trading?</h4>
                 <p>Inner Circle Trader (ICT) methodologies focus on identifying how institutional traders move markets and how retail traders can align with these movements.</p>
-
+                
                 <h4>Core Concepts:</h4>
                 <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
                     <li>Market Structure: Identifying trends and potential reversals</li>
@@ -2046,7 +2283,7 @@
                     <li>Fair Value Gaps: Imbalances in price that often get filled</li>
                     <li>Liquidity Pools: Areas where stops are likely clustered</li>
                 </ul>
-
+                
                 <h4>Free Resources:</h4>
                 <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                     <a href="#" class="resource-btn" style="text-align: center; margin-bottom: 0.5rem;">
@@ -2123,7 +2360,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Calculate Position Size</button>
                 </form>
-
+                
                 <div class="risk-result" id="riskResult">
                     <h4>Position Size Calculation</h4>
                     <p><strong>Risk Amount:</strong> $<span id="riskAmount">0.00</span></p>
@@ -2187,7 +2424,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Add Trade</button>
                 </form>
-
+                
                 <h4 style="margin-bottom: 1rem;">Recent Trades</h4>
                 <div id="journalEntries">
                     <!-- Journal entries will be added here dynamically -->
@@ -2205,7 +2442,7 @@
                         <div class="journal-entry-note">FVG buy setup on 15m timeframe. Stayed patient for entry confirmation.</div>
                         <div class="journal-entry-profit">Profit: $125.00</div>
                     </div>
-
+                    
                     <div class="journal-entry">
                         <div class="journal-entry-header">
                             <span class="journal-entry-date">2023-06-14</span>
@@ -2234,7 +2471,7 @@
             </div>
             <div class="video-course-body">
                 <p style="margin-bottom: 1.5rem; text-align: center;">Select a video course platform to access free ICT trading content:</p>
-
+                
                 <div class="video-course-options">
                     <div class="video-option" id="qmlChannelOption">
                         <div class="video-option-icon">
@@ -2244,7 +2481,7 @@
                         <p>Access our free ICT trading course with market structure, order blocks, and FVG strategies.</p>
                         <button class="btn btn-primary" style="width: 100%;">Watch Now</button>
                     </div>
-
+                    
                     <div class="video-option" id="ictChannelOption">
                         <div class="video-option-icon">
                             <i class="fab fa-youtube"></i>
@@ -2254,6 +2491,198 @@
                         <button class="btn btn-primary" style="width: 100%;">Watch Now</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strategy Pages -->
+    <div class="strategy-page" id="marketStructurePage">
+        <div class="strategy-header">
+            <h2>Market Structure</h2>
+            <button class="strategy-close" id="marketStructureClose">&times;</button>
+        </div>
+        <div class="strategy-content">
+            <div class="strategy-section">
+                <h3>Understanding Market Structure</h3>
+                <p>Market structure refers to the organization of price movements in terms of highs and lows. It helps traders identify trends, potential reversals, and key levels in the market.</p>
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Market Structure" class="strategy-image">
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Key Concepts</h3>
+                <ul>
+                    <li><strong>Higher Highs (HH) & Higher Lows (HL):</strong> Indicates an uptrend</li>
+                    <li><strong>Lower Highs (LH) & Lower Lows (LL):</strong> Indicates a downtrend</li>
+                    <li><strong>Break of Structure (BOS):</strong> When price breaks a previous high/low, signaling trend continuation</li>
+                    <li><strong>Change of Character (CHOCH):</strong> When price fails to make a new high/low, signaling potential reversal</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-section">
+                <h3>How to Trade Market Structure</h3>
+                <p>1. Identify the current market structure (uptrend, downtrend, or ranging)</p>
+                <p>2. Look for breaks of structure (BOS) for trend continuation entries</p>
+                <p>3. Watch for changes of character (CHOCH) for potential reversals</p>
+                <p>4. Use higher timeframe structure to confirm lower timeframe setups</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="strategy-page" id="orderBlockPage">
+        <div class="strategy-header">
+            <h2>Order Blocks</h2>
+            <button class="strategy-close" id="orderBlockClose">&times;</button>
+        </div>
+        <div class="strategy-content">
+            <div class="strategy-section">
+                <h3>What Are Order Blocks?</h3>
+                <p>Order blocks are areas where institutional traders have placed their orders. These zones often become reversal points as price returns to these levels to fill orders.</p>
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Order Blocks" class="strategy-image">
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Identifying Order Blocks</h3>
+                <ul>
+                    <li>Look for consolidation areas before strong moves</li>
+                    <li>Typically found at the base of large moves</li>
+                    <li>Often appear as boxes or rectangles on the chart</li>
+                    <li>Price tends to respect these levels on retests</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Trading Order Blocks</h3>
+                <p>1. Identify potential order blocks on higher timeframes</p>
+                <p>2. Wait for price to return to the order block zone</p>
+                <p>3. Look for confirmation signals (rejection candles, volume spikes)</p>
+                <p>4. Enter trades with stop loss beyond the order block</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="strategy-page" id="fvgPage">
+        <div class="strategy-header">
+            <h2>Fair Value Gaps (FVG)</h2>
+            <button class="strategy-close" id="fvgClose">&times;</button>
+        </div>
+        <div class="strategy-content">
+            <div class="strategy-section">
+                <h3>Understanding Fair Value Gaps</h3>
+                <p>Fair Value Gaps (FVGs) are price imbalances that occur when candles don't overlap, creating gaps that often act as magnets for price.</p>
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Fair Value Gaps" class="strategy-image">
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Identifying FVGs</h3>
+                <ul>
+                    <li>Look for candles where wicks don't overlap</li>
+                    <li>The larger the gap, the stronger the imbalance</li>
+                    <li>More significant on higher timeframes</li>
+                    <li>Often appear after strong moves</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Trading FVGs</h3>
+                <p>1. Identify FVGs on your trading timeframe</p>
+                <p>2. Wait for price to return to the FVG zone</p>
+                <p>3. Look for confirmation signals (rejection candles, order blocks)</p>
+                <p>4. Enter trades with stop loss beyond the FVG</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="strategy-page" id="liquidityPage">
+        <div class="strategy-header">
+            <h2>Liquidity Pools</h2>
+            <button class="strategy-close" id="liquidityClose">&times;</button>
+        </div>
+        <div class="strategy-content">
+            <div class="strategy-section">
+                <h3>Understanding Liquidity Pools</h3>
+                <p>Liquidity pools are areas where stops are clustered, which institutional traders target before reversing price direction.</p>
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Liquidity Pools" class="strategy-image">
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Types of Liquidity</h3>
+                <ul>
+                    <li><strong>Buy-side liquidity:</strong> Below swing lows where sell stops are located</li>
+                    <li><strong>Sell-side liquidity:</strong> Above swing highs where buy stops are located</li>
+                    <li><strong>Internal liquidity:</strong> Within the range where stops accumulate</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Trading Liquidity Pools</h3>
+                <p>1. Identify key swing highs/lows where stops likely cluster</p>
+                <p>2. Watch for price to "sweep" these liquidity areas</p>
+                <p>3. Look for reversal signals after liquidity is taken</p>
+                <p>4. Enter trades in the direction of the reversal</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="strategy-page" id="timePricePage">
+        <div class="strategy-header">
+            <h2>Time & Price</h2>
+            <button class="strategy-close" id="timePriceClose">&times;</button>
+        </div>
+        <div class="strategy-content">
+            <div class="strategy-section">
+                <h3>Time & Price Concepts</h3>
+                <p>The Time & Price methodology combines time-based analysis with price action to anticipate major market moves at specific times.</p>
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Time & Price" class="strategy-image">
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Key Components</h3>
+                <ul>
+                    <li><strong>New York Killzone:</strong> 10am-12pm EST when major moves often occur</li>
+                    <li><strong>London Killzone:</strong> 8am-10am GMT when London session is most active</li>
+                    <li><strong>Asian Session Range:</strong> Often sets up moves for London/NY sessions</li>
+                    <li><strong>Daily/Weekly Opens:</strong> Key times for potential breakouts</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Applying Time & Price</h3>
+                <p>1. Identify key trading times for your instrument</p>
+                <p>2. Watch for price action setups during these windows</p>
+                <p>3. Combine with other ICT concepts (order blocks, FVGs)</p>
+                <p>4. Manage risk appropriately as volatility increases</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="strategy-page" id="multiTimeframePage">
+        <div class="strategy-header">
+            <h2>Multi-Timeframe Analysis</h2>
+            <button class="strategy-close" id="multiTimeframeClose">&times;</button>
+        </div>
+        <div class="strategy-content">
+            <div class="strategy-section">
+                <h3>Multi-Timeframe Trading</h3>
+                <p>Multi-timeframe analysis involves examining multiple timeframes simultaneously to confirm high-probability ICT setups with proper alignment.</p>
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Multi-Timeframe" class="strategy-image">
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Timeframe Ratios</h3>
+                <ul>
+                    <li>Daily → 4H → 1H (for swing trading)</li>
+                    <li>4H → 1H → 15M (for day trading)</li>
+                    <li>1H → 15M → 5M (for intraday trading)</li>
+                    <li>Always look at least 2 timeframes higher for context</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-section">
+                <h3>Multi-Timeframe Strategy</h3>
+                <p>1. Start with higher timeframe for trend direction</p>
+                <p>2. Use middle timeframe for key levels and structure</p>
+                <p>3. Execute on lower timeframe with precise entries</p>
+                <p>4. Ensure all timeframes are aligned before trading</p>
             </div>
         </div>
     </div>
@@ -2295,102 +2724,189 @@
         </div>
     </div>
 
+    <!-- Payment Success Modal -->
+    <div class="modal" id="paymentSuccessModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Payment Successful</h3>
+                <button class="modal-close" id="paymentSuccessClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-success active">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Thank You for Your Payment!</h3>
+                    <p>Your payment has been received and your mentorship access will be activated shortly.</p>
+                    <p>Please join our WhatsApp group for further instructions and to connect with other members.</p>
+                    <a href="https://wa.me/254768510396" class="btn btn-primary" target="_blank" style="width: 100%; margin-top: 1rem;">
+                        <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
-
+        
         mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ?
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
-
+        
         // Smooth Scrolling for Anchor Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
+                
                 if (mainNav.classList.contains('active')) {
                     mainNav.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 }
-
+                
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
-
+        
         // Registration Modal
         const joinMentorshipBtn = document.getElementById('joinMentorshipBtn');
         const registrationModal = document.getElementById('registrationModal');
         const modalClose = document.getElementById('modalClose');
         const submitRegistration = document.getElementById('submitRegistration');
-
+        const regLevel = document.getElementById('regLevel');
+        const paymentMethods = document.getElementById('paymentMethods');
+        const whatsappRedirect = document.getElementById('whatsappRedirect');
+        const paypalDetails = document.getElementById('paypalDetails');
+        const mpesaDetails = document.getElementById('mpesaDetails');
+        const paymentSuccessModal = document.getElementById('paymentSuccessModal');
+        const paymentSuccessClose = document.getElementById('paymentSuccessClose');
+        
         joinMentorshipBtn.addEventListener('click', (e) => {
             e.preventDefault();
             registrationModal.classList.add('active');
         });
-
+        
         modalClose.addEventListener('click', () => {
             registrationModal.classList.remove('active');
         });
-
+        
+        paymentSuccessClose.addEventListener('click', () => {
+            paymentSuccessModal.classList.remove('active');
+        });
+        
+        // Show payment methods only for paid levels
+        regLevel.addEventListener('change', function() {
+            if (this.value === 'intermediate' || this.value === 'advanced') {
+                paymentMethods.style.display = 'block';
+                whatsappRedirect.style.display = 'none';
+            } else if (this.value === 'foundation') {
+                paymentMethods.style.display = 'none';
+                whatsappRedirect.style.display = 'block';
+            } else {
+                paymentMethods.style.display = 'none';
+                whatsappRedirect.style.display = 'none';
+            }
+        });
+        
+        // Payment method selection
+        document.querySelectorAll('input[name="payment"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'paypal') {
+                    paypalDetails.classList.add('active');
+                    mpesaDetails.classList.remove('active');
+                } else if (this.value === 'mpesa') {
+                    mpesaDetails.classList.add('active');
+                    paypalDetails.classList.remove('active');
+                } else {
+                    paypalDetails.classList.remove('active');
+                    mpesaDetails.classList.remove('active');
+                }
+            });
+        });
+        
         submitRegistration.addEventListener('click', () => {
             const name = document.getElementById('regName').value;
             const email = document.getElementById('regEmail').value;
             const phone = document.getElementById('regPhone').value;
             const level = document.getElementById('regLevel').value;
             const experience = document.getElementById('regExperience').value;
-
+            const paymentMethod = document.querySelector('input[name="payment"]:checked');
+            
             if (name && email && phone && level && experience) {
-                // Send email notification
-                const subject = `New Mentorship Registration: ${name}`;
-                const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0ALevel: ${level}%0D%0AExperience: ${experience}`;
-
-                window.open(`mailto:qml254fx@gmail.com?subject=${subject}&body=${body}`);
-
-                alert(`Thank you, ${name}! Your registration for ${level} level has been received. We'll contact you shortly.`);
-
-                // Redirect to members area (simulating successful registration)
-                document.getElementById('membersArea').classList.add('active');
-                document.querySelector('nav ul li a[href="#membersArea"]').textContent = 'Members Area';
-                registrationModal.classList.remove('active');
-
-                // Scroll to members area
-                document.getElementById('membersArea').scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (level === 'intermediate' || level === 'advanced') {
+                    if (!paymentMethod) {
+                        alert('Please select a payment method');
+                        return;
+                    }
+                    
+                    if (paymentMethod.value === 'paypal' && !document.getElementById('paypalConfirm').checked) {
+                        alert('Please confirm you have made the PayPal payment');
+                        return;
+                    }
+                    
+                    if (paymentMethod.value === 'mpesa' && !document.getElementById('mpesaConfirm').checked) {
+                        alert('Please confirm you have made the M-Pesa payment');
+                        return;
+                    }
+                    
+                    // Show payment success modal
+                    registrationModal.classList.remove('active');
+                    paymentSuccessModal.classList.add('active');
+                    
+                    // Send email notification
+                    const subject = `New Mentorship Registration: ${name} - ${level}`;
+                    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0ALevel: ${level}%0D%0AExperience: ${experience}%0D%0APayment Method: ${paymentMethod ? paymentMethod.value : 'N/A'}`;
+                    
+                    window.open(`mailto:qml254fx@gmail.com?subject=${subject}&body=${body}`);
+                } else {
+                    // Free level - no payment needed
+                    alert(`Thank you, ${name}! Your registration for ${level} level has been received. We'll contact you shortly.`);
+                    
+                    // Redirect to members area (simulating successful registration)
+                    document.getElementById('membersArea').classList.add('active');
+                    document.querySelector('nav ul li a[href="#membersArea"]').textContent = 'Members Area';
+                    registrationModal.classList.remove('active');
+                    
+                    // Scroll to members area
+                    document.getElementById('membersArea').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             } else {
                 alert('Please fill in all fields');
             }
         });
-
+        
         // ICT Basics Modal
         const learnIctBtn = document.getElementById('learnIctBtn');
         const ictBasicsModal = document.getElementById('ictBasicsModal');
         const ictModalClose = document.getElementById('ictModalClose');
         const joinFromIctBtn = document.getElementById('joinFromIctBtn');
-
+        
         learnIctBtn.addEventListener('click', (e) => {
             e.preventDefault();
             ictBasicsModal.classList.add('active');
         });
-
+        
         ictModalClose.addEventListener('click', () => {
             ictBasicsModal.classList.remove('active');
         });
-
+        
         joinFromIctBtn.addEventListener('click', () => {
             ictBasicsModal.classList.remove('active');
             registrationModal.classList.add('active');
         });
-
+        
         // Members Link
         const membersLink = document.getElementById('membersLink');
         const membersArea = document.getElementById('membersArea');
-
+        
         membersLink.addEventListener('click', (e) => {
             e.preventDefault();
             membersArea.classList.add('active');
@@ -2398,23 +2914,23 @@
                 behavior: 'smooth'
             });
         });
-
+        
         // PDF Viewer Functionality
         const ictPdfBtn = document.getElementById('ictPdfBtn');
         const pdfViewerModal = document.getElementById('pdfViewerModal');
         const pdfViewerClose = document.getElementById('pdfViewerClose');
         const pdfTabs = document.querySelectorAll('.pdf-tab');
         const pdfViewerIframe = document.getElementById('pdfViewerIframe');
-
+        
         ictPdfBtn.addEventListener('click', (e) => {
             e.preventDefault();
             pdfViewerModal.classList.add('active');
         });
-
+        
         pdfViewerClose.addEventListener('click', () => {
             pdfViewerModal.classList.remove('active');
         });
-
+        
         pdfTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 // Remove active class from all tabs
@@ -2426,40 +2942,40 @@
                 pdfViewerIframe.src = `${pdfName}.pdf#toolbar=0&navpanes=0`;
             });
         });
-
+        
         // Risk Calculator Modal
         const riskCalculatorBtn = document.getElementById('riskCalculatorBtn');
         const riskCalculatorModal = document.getElementById('riskCalculatorModal');
         const riskCalculatorClose = document.getElementById('riskCalculatorClose');
         const riskCalculatorForm = document.getElementById('riskCalculatorForm');
         const riskResult = document.getElementById('riskResult');
-
+        
         riskCalculatorBtn.addEventListener('click', (e) => {
             e.preventDefault();
             riskCalculatorModal.classList.add('active');
         });
-
+        
         riskCalculatorClose.addEventListener('click', () => {
             riskCalculatorModal.classList.remove('active');
         });
-
+        
         riskCalculatorForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
+            
             const accountBalance = parseFloat(document.getElementById('accountBalance').value);
             const riskPercentage = parseFloat(document.getElementById('riskPercentage').value);
             const stopLossPips = parseFloat(document.getElementById('stopLossPips').value);
             const pair = document.getElementById('pair').value;
-
+            
             if (accountBalance && riskPercentage && stopLossPips) {
                 // Calculate risk amount
                 const riskAmount = accountBalance * (riskPercentage / 100);
-
+                
                 // Calculate position size (assuming standard lot size)
                 // For forex, 1 standard lot = 100,000 units
                 // Pip value for standard lot is approximately $10 for XXX/USD pairs
                 let pipValue = 10; // Default for XXX/USD pairs
-
+                
                 // Adjust for USD/XXX pairs
                 if (pair.startsWith('USD/')) {
                     pipValue = 10;
@@ -2467,24 +2983,24 @@
                     // For these pairs, pip value is approximately $8.93 for a standard lot
                     pipValue = 8.93;
                 }
-
+                
                 // Calculate position size in lots
                 const positionSize = (riskAmount / (stopLossPips * pipValue)).toFixed(2);
-
+                
                 // Calculate units (1 lot = 100,000 units)
                 const units = Math.round(positionSize * 100000);
-
+                
                 // Update results
                 document.getElementById('riskAmount').textContent = riskAmount.toFixed(2);
                 document.getElementById('positionSize').textContent = positionSize;
                 document.getElementById('units').textContent = units.toLocaleString();
                 document.getElementById('pipValue').textContent = pipValue.toFixed(2);
-
+                
                 // Show results
                 riskResult.style.display = 'block';
             }
         });
-
+        
         // Trading Journal Modal
         const tradingJournalBtn = document.getElementById('tradingJournalBtn');
         const journalLearnMoreBtn = document.getElementById('journalLearnMoreBtn');
@@ -2492,48 +3008,48 @@
         const journalClose = document.getElementById('journalClose');
         const journalForm = document.getElementById('journalForm');
         const journalEntries = document.getElementById('journalEntries');
-
+        
         tradingJournalBtn.addEventListener('click', (e) => {
             e.preventDefault();
             journalModal.classList.add('active');
         });
-
+        
         journalLearnMoreBtn.addEventListener('click', (e) => {
             e.preventDefault();
             journalModal.classList.add('active');
         });
-
+        
         journalClose.addEventListener('click', () => {
             journalModal.classList.remove('active');
         });
-
+        
         journalForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-
-                    const tradeDate = document.getElementById('tradeDate').value;
-                    const tradePair = document.getElementById('tradePair').value;
-                    const tradeDirection = document.getElementById('tradeDirection').value;
-                    const entryPrice = parseFloat(document.getElementById('entryPrice').value);
-                    const exitPrice = parseFloat(document.getElementById('exitPrice').value);
-                    const positionSize = parseFloat(document.getElementById('positionSizeJournal').value);
-                    const tradeNote = document.getElementById('tradeNote').value;
-
-                    if (tradeDate && tradePair && tradeDirection && entryPrice && exitPrice && positionSize) {
-                        // Calculate profit/loss
-                        // For forex, profit = (exitPrice - entryPrice) * positionSize * 100000
-                        // For sell trades, profit = (entryPrice - exitPrice) * positionSize * 100000
-                        let profit = 0;
-                        if (tradeDirection === 'buy') {
-                            profit = (exitPrice - entryPrice) * positionSize * 100000;
-                        } else {
-                            profit = (entryPrice - exitPrice) * positionSize * 100000;
-                        }
-
-                        // Create new journal entry
-                        const entryDiv = document.createElement('div');
-                        entryDiv.className = 'journal-entry';
-
-                        entryDiv.innerHTML = `
+            e.preventDefault();
+            
+            const tradeDate = document.getElementById('tradeDate').value;
+            const tradePair = document.getElementById('tradePair').value;
+            const tradeDirection = document.getElementById('tradeDirection').value;
+            const entryPrice = parseFloat(document.getElementById('entryPrice').value);
+            const exitPrice = parseFloat(document.getElementById('exitPrice').value);
+            const positionSize = parseFloat(document.getElementById('positionSizeJournal').value);
+            const tradeNote = document.getElementById('tradeNote').value;
+            
+            if (tradeDate && tradePair && tradeDirection && entryPrice && exitPrice && positionSize) {
+                // Calculate profit/loss
+                // For forex, profit = (exitPrice - entryPrice) * positionSize * 100000
+                // For sell trades, profit = (entryPrice - exitPrice) * positionSize * 100000
+                let profit = 0;
+                if (tradeDirection === 'buy') {
+                    profit = (exitPrice - entryPrice) * positionSize * 100000;
+                } else {
+                    profit = (entryPrice - exitPrice) * positionSize * 100000;
+                }
+                
+                // Create new journal entry
+                const entryDiv = document.createElement('div');
+                entryDiv.className = 'journal-entry';
+                
+                entryDiv.innerHTML = `
                     <div class="journal-entry-header">
                         <span class="journal-entry-date">${tradeDate}</span>
                         <span class="journal-entry-pair">${tradePair}</span>
@@ -2585,6 +3101,101 @@
             window.open('https://www.youtube.com/@innercircletrader', '_blank');
         });
         
+        // Strategy Pages
+        const marketStructureCard = document.getElementById('marketStructureCard');
+        const orderBlockCard = document.getElementById('orderBlockCard');
+        const fvgCard = document.getElementById('fvgCard');
+        const liquidityCard = document.getElementById('liquidityCard');
+        const timePriceCard = document.getElementById('timePriceCard');
+        const multiTimeframeCard = document.getElementById('multiTimeframeCard');
+        
+        const marketStructurePage = document.getElementById('marketStructurePage');
+        const orderBlockPage = document.getElementById('orderBlockPage');
+        const fvgPage = document.getElementById('fvgPage');
+        const liquidityPage = document.getElementById('liquidityPage');
+        const timePricePage = document.getElementById('timePricePage');
+        const multiTimeframePage = document.getElementById('multiTimeframePage');
+        
+        const marketStructureClose = document.getElementById('marketStructureClose');
+        const orderBlockClose = document.getElementById('orderBlockClose');
+        const fvgClose = document.getElementById('fvgClose');
+        const liquidityClose = document.getElementById('liquidityClose');
+        const timePriceClose = document.getElementById('timePriceClose');
+        const multiTimeframeClose = document.getElementById('multiTimeframeClose');
+        
+        // Strategy cards click handlers
+        marketStructureCard.addEventListener('click', () => {
+            marketStructurePage.classList.add('active');
+        });
+        
+        orderBlockCard.addEventListener('click', () => {
+            orderBlockPage.classList.add('active');
+        });
+        
+        fvgCard.addEventListener('click', () => {
+            fvgPage.classList.add('active');
+        });
+        
+        liquidityCard.addEventListener('click', () => {
+            liquidityPage.classList.add('active');
+        });
+        
+        timePriceCard.addEventListener('click', () => {
+            timePricePage.classList.add('active');
+        });
+        
+        multiTimeframeCard.addEventListener('click', () => {
+            multiTimeframePage.classList.add('active');
+        });
+        
+        // Strategy close buttons
+        marketStructureClose.addEventListener('click', () => {
+            marketStructurePage.classList.remove('active');
+        });
+        
+        orderBlockClose.addEventListener('click', () => {
+            orderBlockPage.classList.remove('active');
+        });
+        
+        fvgClose.addEventListener('click', () => {
+            fvgPage.classList.remove('active');
+        });
+        
+        liquidityClose.addEventListener('click', () => {
+            liquidityPage.classList.remove('active');
+        });
+        
+        timePriceClose.addEventListener('click', () => {
+            timePricePage.classList.remove('active');
+        });
+        
+        multiTimeframeClose.addEventListener('click', () => {
+            multiTimeframePage.classList.remove('active');
+        });
+        
+        // Footer strategy links
+        document.querySelectorAll('.strategy-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const strategy = link.getAttribute('data-strategy');
+                
+                switch(strategy) {
+                    case 'market-structure':
+                        marketStructurePage.classList.add('active');
+                        break;
+                    case 'order-blocks':
+                        orderBlockPage.classList.add('active');
+                        break;
+                    case 'fvg':
+                        fvgPage.classList.add('active');
+                        break;
+                    case 'liquidity':
+                        liquidityPage.classList.add('active');
+                        break;
+                }
+            });
+        });
+        
         // Chatbot Functionality
         const chatbotBtn = document.getElementById('chatbotBtn');
         const chatbotWindow = document.getElementById('chatbotWindow');
@@ -2617,7 +3228,10 @@
             chatbotBody.scrollTop = chatbotBody.scrollHeight;
         }
         
-        chatbotSend.addEventListener('click', sendMessage);
+        chatbotSend.addEventListener('click', () => {
+            sendMessage();
+        });
+        
         chatbotInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 sendMessage();
@@ -2630,108 +3244,55 @@
                 addUserMessage(message);
                 chatbotInput.value = '';
                 
-                // Process user message and generate bot response
+                // Simple chatbot responses
                 setTimeout(() => {
                     const lowerMessage = message.toLowerCase();
                     
-                    // Greetings
-                    if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
-                        addBotMessage("Hello there! How can I assist you with ICT trading concepts today?");
+                    if (lowerMessage.includes('market structure') || 
+                        lowerMessage.includes('bos') || 
+                        lowerMessage.includes('choch')) {
+                        addBotMessage("Market structure refers to the organization of price movements in terms of highs and lows. A Break of Structure (BOS) indicates trend continuation, while a Change of Character (CHOCH) suggests potential reversal.");
+                    } 
+                    else if (lowerMessage.includes('order block') || 
+                             lowerMessage.includes('ob')) {
+                        addBotMessage("Order blocks are areas where institutional traders have placed their orders. They often appear as consolidation zones before strong moves and act as reversal points when price returns to them.");
                     }
-                    // Market structure
-                    else if (lowerMessage.includes('market structure') || lowerMessage.includes('bos') || lowerMessage.includes('choch')) {
-                        addBotMessage("Market structure refers to the highs and lows that create trends. In ICT, we look for:<br><br>" +
-                                      "• <strong>Break of Structure (BOS)</strong>: When price breaks a previous high/low, indicating potential trend continuation<br>" +
-                                      "• <strong>Change of Character (CHOCH)</strong>: When price fails to make a new high/low, signaling potential reversal<br><br>" +
-                                      "Would you like me to explain how to identify these on a chart?");
+                    else if (lowerMessage.includes('fair value gap') || 
+                             lowerMessage.includes('fvg')) {
+                        addBotMessage("Fair Value Gaps (FVGs) are price imbalances where candles don't overlap. They act as magnets for price and often get filled. Look for FVGs after strong moves for potential reversal entries.");
                     }
-                    // Order blocks
-                    else if (lowerMessage.includes('order block') || lowerMessage.includes('ob')) {
-                        addBotMessage("Order blocks are areas where institutional traders have placed their orders. These often become reversal zones. Key characteristics:<br><br>" +
-                                      "• Found at the base of large moves<br>" +
-                                      "• Typically a consolidation area before a strong move<br>" +
-                                      "• Price often returns to test these levels<br><br>" +
-                                      "Would you like me to show you how to identify order blocks?");
+                    else if (lowerMessage.includes('liquidity') || 
+                             lowerMessage.includes('stop hunt')) {
+                        addBotMessage("Liquidity pools are areas where retail stop orders cluster. Institutions often target these levels to trigger stops before reversing price. Look for liquidity above highs (for sell-side) and below lows (for buy-side).");
                     }
-                    // Fair value gaps
-                    else if (lowerMessage.includes('fair value gap') || lowerMessage.includes('fvg')) {
-                        addBotMessage("Fair Value Gaps (FVGs) are price imbalances that often get filled. They appear as gaps between candles on higher timeframes and act as magnets for price.<br><br>" +
-                                      "To identify FVGs:<br>" +
-                                      "1. Look for candles where the wicks don't overlap<br>" +
-                                      "2. The larger the gap, the stronger the imbalance<br>" +
-                                      "3. Price often returns to fill these gaps<br><br>" +
-                                      "Would you like me to explain how to trade FVGs?");
+                    else if (lowerMessage.includes('time') && 
+                             lowerMessage.includes('price')) {
+                        addBotMessage("The Time & Price concept focuses on specific times when institutions are most active (like London and NY killzones). Combine these times with key price levels for high-probability setups.");
                     }
-                    // Liquidity
-                    else if (lowerMessage.includes('liquidity') || lowerMessage.includes('liq')) {
-                        addBotMessage("In ICT, liquidity refers to areas where stops are clustered, which institutional traders target. There are two main types:<br><br>" +
-                                      "• <strong>Buy-side liquidity</strong>: Below swing lows where sell stops are located<br>" +
-                                      "• <strong>Sell-side liquidity</strong>: Above swing highs where buy stops are located<br><br>" +
-                                      "Smart money often sweeps these liquidity pools before reversing price.");
+                    else if (lowerMessage.includes('multi') || 
+                             lowerMessage.includes('timeframe') || 
+                             lowerMessage.includes('mtf')) {
+                        addBotMessage("Multi-timeframe analysis means checking higher timeframes for trend direction and key levels, then executing on lower timeframes. Common ratios are Daily → 4H → 1H for swing trading.");
                     }
-                    // Risk management
-                    else if (lowerMessage.includes('risk') || lowerMessage.includes('manage')) {
-                        addBotMessage("Proper risk management is crucial in trading. ICT recommends:<br><br>" +
-                                      "• Risking no more than 1-2% of your account per trade<br>" +
-                                      "• Using stop losses based on market structure<br>" +
-                                      "• Taking partial profits at key levels<br><br>" +
-                                      "Would you like me to open the risk calculator tool for you?");
+                    else if (lowerMessage.includes('hello') || 
+                             lowerMessage.includes('hi') || 
+                             lowerMessage.includes('hey')) {
+                        addBotMessage("Hello! How can I help you with ICT trading concepts today?");
                     }
-                    // Mentorship
-                    else if (lowerMessage.includes('mentorship') || lowerMessage.includes('join') || lowerMessage.includes('program')) {
-                        addBotMessage("Our mentorship program has 3 FREE levels (Foundation, Intermediate, Advanced) covering all ICT concepts. Would you like me to open the registration form for you?");
+                    else if (lowerMessage.includes('thank')) {
+                        addBotMessage("You're welcome! Let me know if you have any other questions about ICT methodologies.");
                     }
-                    // Positive response
-                    else if (lowerMessage.includes('yes') || lowerMessage.includes('sure') || lowerMessage.includes('ok') || lowerMessage.includes('please')) {
-                        if (message.includes('risk')) {
-                            addBotMessage("Opening the risk calculator tool for you...");
-                            setTimeout(() => {
-                                riskCalculatorModal.classList.add('active');
-                                chatbotWindow.classList.remove('active');
-                            }, 1000);
-                        }
-                        else if (message.includes('register') || message.includes('mentorship') || message.includes('program')) {
-                            addBotMessage("Opening the registration form for you...");
-                            setTimeout(() => {
-                                registrationModal.classList.add('active');
-                                chatbotWindow.classList.remove('active');
-                            }, 1000);
-                        }
-                        else {
-                            addBotMessage("Great! I'm happy to help. What specific question do you have about that topic?");
-                        }
-                    }
-                    // Negative response
-                    else if (lowerMessage.includes('no') || lowerMessage.includes('not') || lowerMessage.includes('nope')) {
-                        addBotMessage("No problem! Is there something else I can help you with regarding ICT trading?");
-                    }
-                    // Default response
                     else {
-                        addBotMessage("I'm still learning about ICT concepts. For detailed questions, you might find these resources helpful:<br><br>" +
-                                      "• <a href='#' id='ictPdfLink' style='color: var(--ict-purple);'>ICT Basics PDF</a><br>" +
-                                      "• <a href='#' id='videoCourseLink' style='color: var(--ict-purple);'>Free Video Course</a><br><br>" +
-                                      "Or you can contact me on WhatsApp for personalized assistance. Would you like me to connect you now?");
-                        
-                        // Add event listeners to the links
-                        document.getElementById('ictPdfLink').addEventListener('click', (e) => {
-                            e.preventDefault();
-                            pdfViewerModal.classList.add('active');
-                            chatbotWindow.classList.remove('active');
-                        });
-                        
-                        document.getElementById('videoCourseLink').addEventListener('click', (e) => {
-                            e.preventDefault();
-                            videoCourseModal.classList.add('active');
-                            chatbotWindow.classList.remove('active');
-                        });
+                        addBotMessage("I'm not sure I understand. Could you ask about specific ICT concepts like market structure, order blocks, FVGs, or liquidity?");
                     }
-                }, 800);
+                }, 500);
             }
         }
         
         // Contact Form Submission
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
+        
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
             const name = document.getElementById('name').value;
@@ -2739,14 +3300,18 @@
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Send email notification
-            const emailSubject = `New Message from ${name}: ${subject}`;
-            const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
-            
-            window.open(`mailto:qml254fx@gmail.com?subject=${emailSubject}&body=${emailBody}`);
-            
-            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
-            contactForm.reset();
+            if (name && email && subject && message) {
+                // Send email notification
+                const emailSubject = `New Contact Form: ${subject}`;
+                const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0ASubject: ${subject}%0D%0AMessage: ${message}`;
+                
+                window.open(`mailto:qml254fx@gmail.com?subject=${emailSubject}&body=${emailBody}`);
+                
+                alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+                contactForm.reset();
+            } else {
+                alert('Please fill in all fields');
+            }
         });
         
         // Level Buttons
@@ -2754,8 +3319,15 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const level = btn.getAttribute('data-level');
+                
+                // Set the level in the registration form
                 document.getElementById('regLevel').value = level;
+                
+                // Open registration modal
                 registrationModal.classList.add('active');
+                
+                // Scroll to form
+                document.getElementById('regName').focus();
             });
         });
         
@@ -2779,8 +3351,32 @@
             if (e.target === videoCourseModal) {
                 videoCourseModal.classList.remove('active');
             }
+            if (e.target === paymentSuccessModal) {
+                paymentSuccessModal.classList.remove('active');
+            }
+        });
+        
+        // Close strategy pages when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === marketStructurePage) {
+                marketStructurePage.classList.remove('active');
+            }
+            if (e.target === orderBlockPage) {
+                orderBlockPage.classList.remove('active');
+            }
+            if (e.target === fvgPage) {
+                fvgPage.classList.remove('active');
+            }
+            if (e.target === liquidityPage) {
+                liquidityPage.classList.remove('active');
+            }
+            if (e.target === timePricePage) {
+                timePricePage.classList.remove('active');
+            }
+            if (e.target === multiTimeframePage) {
+                multiTimeframePage.classList.remove('active');
+            }
         });
     </script>
 </body>
-
 </html>
