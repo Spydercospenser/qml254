@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QML - Quick Mastery Learning | Forex Trading Notes</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #dbeafe;
+            --secondary: #065f46;
+            --secondary-light: #d1fae5;
+            --accent: #9a3412;
+            --accent-light: #fef3c7;
+            --dark: #111827;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --success: #047857;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: #f3f4f6;
+            color: var(--dark);
+            line-height: 1.7;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .download-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .download-btn {
+            background-color: var(--success);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .download-btn:hover {
+            background-color: #03644d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .vcard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+        
+        .vcard {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .vcard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vcard-header {
+            padding: 18px 24px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .vcard-primary .vcard-header {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .vcard-secondary .vcard-header {
+            background-color: var(--secondary-light);
+            color: var(--secondary);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .vcard-accent .vcard-header {
+            background-color: var(--accent-light);
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .vcard-body {
+            padding: 24px;
+        }
+        
+        .note-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e5e7eb;
+        }
+        
+        .note-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .note-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .note-title:before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background-color: currentColor;
+        }
+        
+        .vcard-primary .note-title {
+            color: var(--primary);
+        }
+        
+        .vcard-secondary .note-title {
+            color: var(--secondary);
+        }
+        
+        .vcard-accent .note-title {
+            color: var(--accent);
+        }
+        
+        .note-content {
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+        
+        .note-list {
+            list-style-type: none;
+            margin-top: 12px;
+        }
+        
+        .note-list li {
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .note-list li:before {
+            content: "→";
+            color: var(--gray);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .note-list strong {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .new-badge {
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .vcard-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">QML<span>Notes</span></div>
+            <p class="subtitle">Quick Mastery Learning for Forex Trading - Institutional Concepts Simplified</p>
+            
+            <div class="download-container">
+                <a href="#" class="download-btn" id="downloadNotes">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Complete QML Notes
+                </a>
+            </div>
+        </header>
+        
+        <div class="vcard-container">
+            <!-- Market Structure Card -->
+            <div class="vcard vcard-primary">
+                <div class="vcard-header">Market Structure Mastery</div>
+                <div class="vcard-body">
+                    <div class="note-item">
+                        <div class="note-title">Uptrend Identification</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Higher Highs (HH):</strong> Each peak exceeds the previous</li>
+                                <li><strong>Higher Lows (HL):</strong> Each pullback stops above prior low</li>
+                                <li><strong>Support Holds:</strong> Previous resistance becomes support</li>
+                                <li><strong>Impulse Waves:</strong> Strong moves in trend direction</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Downtrend Identification</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Lower Lows (LL):</strong> Each trough breaks prior low</li>
+                                <li><strong>Lower Highs (LH):</strong> Each rally fails to break prior high</li>
+                                <li><strong>Resistance Holds:</strong> Previous support becomes resistance</li>
+                                <li><strong>Distribution:</strong> Heavy selling at rallies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Structural Shifts <span class="new-badge">NEW</span></div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>BOS:</strong> Break of Structure confirms trend continuation</li>
+                                <li><strong>CHOCH:</strong> Change of Character signals potential reversal</li>
+                                <li><strong>Liquidity Void:</strong> Price gaps create future targets</li>
+                                <li><strong>FVG:</strong> Fair Value Gaps act as magnets</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trading Strategy Card -->
+            <div class="vcard vcard-secondary">
+                <div class="vcard-header">QML Trading Framework</div>
+                <div class="vcard-body">
+                    <div class="note-item">
+                        <div class="note-title">Buy Setup Protocol</div>
+                        <div class="note-content">
+                            <ol class="note-list">
+                                <li><strong>Identify:</strong> Established downtrend (LH/LL)</li>
+                                <li><strong>Wait:</strong> For HL formation breaking sequence</li>
+                                <li><strong>Mark:</strong> Neckline at most recent significant LH</li>
+                                <li><strong>Confirm:</strong> Break above neckline with strong close</li>
+                                <li><strong>Enter:</strong> On retest with tight stop below HL</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Sell Setup Protocol</div>
+                        <div class="note-content">
+                            <ol class="note-list">
+                                <li><strong>Identify:</strong> Established uptrend (HH/HL)</li>
+                                <li><strong>Wait:</strong> For LH formation breaking sequence</li>
+                                <li><strong>Mark:</strong> Neckline at most recent significant HL</li>
+                                <li><strong>Confirm:</strong> Break below neckline with strong close</li>
+                                <li><strong>Enter:</strong> On retest with tight stop above LH</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Advanced Confirmation <span class="new-badge">PRO</span></div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Volume Spike:</strong> Institutional participation</li>
+                                <li><strong>Time Alignment:</strong> London/NY overlap</li>
+                                <li><strong>Liquidity Run:</strong> Stop hunts before reversal</li>
+                                <li><strong>Divergence:</strong> Price vs momentum indicator</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Risk Management Card -->
+            <div class="vcard vcard-accent">
+                <div class="vcard-header">Risk & Money Management</div>
+                <div class="vcard-body">
+                    <div class="note-item">
+                        <div class="note-title">Position Sizing Rules</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>1% Rule:</strong> Risk max 1% per trade</li>
+                                <li><strong>Lot Calculator:</strong> Based on stop distance</li>
+                                <li><strong>Volatility Adjust:</strong> Wider stops = smaller size</li>
+                                <li><strong>Account Scaling:</strong> Increase size gradually</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Stop Placement Strategy</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Structural:</strong> Beyond recent swing point</li>
+                                <li><strong>ATR-Based:</strong> 1.5x current ATR</li>
+                                <li><strong>Never Widen:</strong> Only tighten stops</li>
+                                <li><strong>Mental Stops:</strong> For news/volatility</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Profit Optimization</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>1:3 RR:</strong> Minimum target ratio</li>
+                                <li><strong>Scale Out:</strong> 50% at 1R, 50% at 3R</li>
+                                <li><strong>Trailing Stop:</strong> After 2R profit</li>
+                                <li><strong>Liquidity Targets:</strong> Previous highs/lows</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Time & Price Card -->
+            <div class="vcard vcard-primary">
+                <div class="vcard-header">Time & Price Alignment</div>
+                <div class="vcard-body">
+                    <div class="note-item">
+                        <div class="note-title">Optimal Trading Times</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>London Open:</strong> 8:00 AM GMT</li>
+                                <li><strong>NY Open:</strong> 1:00 PM GMT</li>
+                                <li><strong>Overlap:</strong> 1PM-4PM GMT (best volatility)</li>
+                                <li><strong>Weekly:</strong> Wednesday/Thursday strongest</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Multi-Timeframe Analysis</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Higher TF:</strong> 4H/Daily for direction</li>
+                                <li><strong>Middle TF:</strong> 1H for structure</li>
+                                <li><strong>Entry TF:</strong> 15M for precise entries</li>
+                                <li><strong>Alignment:</strong> All TFs must agree</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Seasonal Patterns <span class="new-badge">2024</span></div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Month End:</strong> Last 3 trading days</li>
+                                <li><strong>Quarterly:</strong> First week strong moves</li>
+                                <li><strong>Holidays:</strong> Reduced liquidity</li>
+                                <li><strong>News:</strong> NFP, CPI, FOMC impact</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Psychology & Journal Card -->
+            <div class="vcard vcard-secondary">
+                <div class="vcard-header">Trader Psychology</div>
+                <div class="vcard-body">
+                    <div class="note-item">
+                        <div class="note-title">Mindset Fundamentals</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Process Focus:</strong> Not P&L</li>
+                                <li><strong>Loss Acceptance:</strong> Part of business</li>
+                                <li><strong>Patience:</strong> Wait for A+ setups</li>
+                                <li><strong>Discipline:</strong> Follow rules always</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Journaling System</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Every Trade:</strong> Screenshot + notes</li>
+                                <li><strong>Mistakes:</strong> Categorize errors</li>
+                                <li><strong>Metrics:</strong> Win rate, RR, max drawdown</li>
+                                <li><strong>Weekly Review:</strong> Adjust strategies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Performance Tracking</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Monthly Goals:</strong> Process-based</li>
+                                <li><strong>Quarterly Review:</strong> Strategy efficacy</li>
+                                <li><strong>Annual Reset:</strong> New challenges</li>
+                                <li><strong>Continuous Learning:</strong> Backtest new ideas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Institutional Concepts Card -->
+            <div class="vcard vcard-accent">
+                <div class="vcard-header">Institutional Concepts</div>
+                <div class="vcard-body">
+                    <div class="note-item">
+                        <div class="note-title">Order Flow Analysis</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>Liquidity Pools:</strong> Above highs/below lows</li>
+                                <li><strong>Stop Hunts:</strong> False breaks before reversal</li>
+                                <li><strong>Volume Nodes:</strong> High activity areas</li>
+                                <li><strong>Imbalance Zones:</strong> FVGs to be filled</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Smart Money Concepts</div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>OTE:</strong> Optimal Trade Entry zones</li>
+                                <li><strong>MSB:</strong> Market Structure Breaks</li>
+                                <li><strong>BMS:</strong> Break of Market Structure</li>
+                                <li><strong>Liquidity Void:</strong> Fast price movement</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item">
+                        <div class="note-title">Advanced Patterns <span class="new-badge">PRO</span></div>
+                        <div class="note-content">
+                            <ul class="note-list">
+                                <li><strong>ICT Silver Bullet:</strong> London session setup</li>
+                                <li><strong>Power of 3:</strong> Triple test of levels</li>
+                                <li><strong>Mitigation Blocks:</strong> Reversal zones</li>
+                                <li><strong>Displacement:</strong> Strong impulsive moves</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced download functionality
+        document.getElementById('downloadNotes').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.href = '#'; // Replace with your actual PDF URL
+            link.download = 'QML-Forex-Trading-Notes.pdf';
+            
+            // Track download (example)
+            console.log('QML Notes download initiated');
+            
+            // Show confirmation
+            const btn = this;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                Download Started!
+            `;
+            
+            // Trigger download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
